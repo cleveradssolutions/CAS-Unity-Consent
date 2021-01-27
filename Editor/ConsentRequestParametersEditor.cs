@@ -208,7 +208,7 @@ namespace CAS.UserConsent
 
         private static GameObject CreateCustomUIPrefab()
         {
-            const string resultFileName = "/UserConsentUI.prefab";
+            const string resultFileName = "Assets/CleverAdsSolutions/UserConsentUI.prefab";
 
             var originalPrefab = LoadUITemplatePrefab();
             if (!originalPrefab)
@@ -218,7 +218,7 @@ namespace CAS.UserConsent
                 AssetDatabase.CreateFolder( "Assets", "CleverAdsSolutions" );
 
             var objSource = PrefabUtility.InstantiatePrefab( originalPrefab ) as GameObject;
-            var asset = PrefabUtility.SaveAsPrefabAsset( objSource, rootCASFolderPath + resultFileName );
+            var asset = PrefabUtility.SaveAsPrefabAsset( objSource, resultFileName );
             DestroyImmediate( objSource );
 
             return asset;
