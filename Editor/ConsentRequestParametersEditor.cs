@@ -236,7 +236,7 @@ namespace CAS.UserConsent
 
         private void DrawTermsOfUseHeader( Rect rect )
         {
-            EditorGUI.LabelField( rect, "TermsOfUse URL" );
+            EditorGUI.LabelField( rect, "Terms of Use URL" );
         }
 
         private void DrawConsentMessageHeader( Rect rect )

@@ -117,6 +117,12 @@ namespace CAS.UserConsent
             return this;
         }
 
+        public ConsentRequestParameters WithRequestTrackingTransparency()
+        {
+            withRequestTrackingTransparency = true;
+            return this;
+        }
+
         public ConsentRequestParameters DisableInEditor()
         {
             showInEditor = false;
