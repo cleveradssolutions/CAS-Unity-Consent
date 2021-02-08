@@ -10,16 +10,17 @@ namespace CAS.UserConsent
     [AddComponentMenu( "CleverAdsSolutions/UserConsent/Mediation Settings UI" )]
     public sealed class MediationSettingsUI : MonoBehaviour
     {
+#pragma warning disable 0649
         [Header( "Components" )]
-        [SerializeField]
-        private MediationPolicyUI policyPrefab;
         [SerializeField]
         private Transform container;
         [SerializeField]
         private Text message;
 
         [Header( "Optional" )]
+        public MediationPolicyUI policyPrefab;
         public UnityEvent OnConsent;
+#pragma warning restore 0649
 
         private MediationPolicyUI[] items;
         private bool initialized = false;

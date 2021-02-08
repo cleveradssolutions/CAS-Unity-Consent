@@ -9,16 +9,27 @@ namespace CAS.UserConsent
     public sealed class ConsentRequestParameters : ScriptableObject
     {
         [Serializable]
-        public sealed class LocalizedText
+        public sealed class TypedText
         {
-            public SystemLanguage language;
+            public int id;
             public string text;
 
-            public LocalizedText( SystemLanguage language, string text )
+            public TypedText() { }
+            public TypedText( SystemLanguage language, string text )
             {
-                this.language = language;
+                this.id = (int)language;
                 this.text = text;
             }
+
+            public TypedText( RuntimePlatform platform, string text )
+            {
+                this.id = ( int )platform;
+                this.text = text;
+            }
+
+            public SystemLanguage language { get { return ( SystemLanguage )id; } }
+
+            public RuntimePlatform Platform { get { return ( RuntimePlatform )id; } }
         }
 
         public const string defaultAssetPath = "CASConsentRequestParameters";
@@ -33,19 +44,24 @@ namespace CAS.UserConsent
         internal bool withDeclineOption = false;
         [SerializeField]
         internal bool withMediationSettings = true;
+        [SerializeField]
+        internal bool withRequestTrackingTransparency = false;
 
         [SerializeField]
         internal UserConsentUI uiPrefab;
 
         [SerializeField]
-        internal string privacyPolicyUrl;
-        [SerializeField]
-        internal string termsOfUseUrl;
+        internal MediationPolicyUI settingsTogglePrefab;
 
         [SerializeField]
-        private LocalizedText[] consentMessage;
+        private TypedText[] privacyPolicyUrl;
         [SerializeField]
-        private LocalizedText[] settingsMessage;
+        private TypedText[] termsOfUseUrl;
+
+        [SerializeField]
+        private TypedText[] consentMessage;
+        [SerializeField]
+        private TypedText[] settingsMessage;
 
         internal int resetStatus = 0;
 
@@ -113,15 +129,21 @@ namespace CAS.UserConsent
             return this;
         }
 
+        public ConsentRequestParameters WithMediationSettingsTogglePrefab( MediationPolicyUI prefab )
+        {
+            settingsTogglePrefab = prefab;
+            return this;
+        }
+
         public ConsentRequestParameters WithPrivacyPolicy( string url )
         {
-            privacyPolicyUrl = url;
+            privacyPolicyUrl = new TypedText[] { new TypedText( SystemLanguage.English, url ) };
             return this;
         }
 
         public ConsentRequestParameters WithTermsOfUse( string url )
         {
-            termsOfUseUrl = url;
+            termsOfUseUrl = new TypedText[] { new TypedText( SystemLanguage.English, url ) };
             return this;
         }
 
@@ -146,17 +168,17 @@ namespace CAS.UserConsent
 
         public ConsentRequestParameters WithConsentMessage( string message )
         {
-            consentMessage = new LocalizedText[] { new LocalizedText( SystemLanguage.English, message ) };
+            consentMessage = new TypedText[] { new TypedText( SystemLanguage.English, message ) };
             return this;
         }
 
         public ConsentRequestParameters WithConsentMessage( Dictionary<SystemLanguage, string> text )
         {
-            consentMessage = new LocalizedText[text.Count];
+            consentMessage = new TypedText[text.Count];
             int i = 0;
             foreach (var item in text)
             {
-                consentMessage[i] = new LocalizedText( item.Key, item.Value );
+                consentMessage[i] = new TypedText( item.Key, item.Value );
                 i++;
             }
             return this;
@@ -164,46 +186,51 @@ namespace CAS.UserConsent
 
         public ConsentRequestParameters WithSettingsMessage( string message )
         {
-            settingsMessage = new LocalizedText[] { new LocalizedText( SystemLanguage.English, message ) };
+            settingsMessage = new TypedText[] { new TypedText( SystemLanguage.English, message ) };
             return this;
         }
 
         public ConsentRequestParameters WithSettingsMessage( Dictionary<SystemLanguage, string> text )
         {
-            settingsMessage = new LocalizedText[text.Count];
+            settingsMessage = new TypedText[text.Count];
             int i = 0;
             foreach (var item in text)
             {
-                settingsMessage[i] = new LocalizedText( item.Key, item.Value );
+                settingsMessage[i] = new TypedText( item.Key, item.Value );
                 i++;
             }
             return this;
         }
 
+        public string GetPrivacyPolicyUrl(RuntimePlatform platform )
+        {
+            return GetTypedText( privacyPolicyUrl, ( int )platform );
+        }
+
+        public string GetTermsOfUseUrl( RuntimePlatform platform )
+        {
+            return GetTypedText( termsOfUseUrl, ( int )platform );
+        }
+
         public string GetConsentMessage( SystemLanguage language )
         {
-            return GetMessage( consentMessage, language );
+            return GetTypedText( consentMessage, ( int )language );
         }
 
         public string GetSettingsMessage( SystemLanguage language )
         {
-            return GetMessage( settingsMessage, language );
+            return GetTypedText( settingsMessage, (int)language );
         }
 
-        private string GetMessage( LocalizedText[] source, SystemLanguage language )
+        private string GetTypedText( TypedText[] source, int id )
         {
             if (source.Length == 0)
                 return "";
-            string englishMessage = null;
             for (int i = 0; i < source.Length; i++)
             {
-                if (source[i].language == language)
+                if (source[i].id == id)
                     return source[i].text;
-                if (source[i].language == SystemLanguage.English)
-                    englishMessage = source[i].text;
             }
-            if (!string.IsNullOrEmpty( englishMessage ))
-                return englishMessage;
             return source[0].text;
         }
     }

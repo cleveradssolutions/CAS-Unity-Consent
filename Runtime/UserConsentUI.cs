@@ -7,6 +7,7 @@ namespace CAS.UserConsent
     [AddComponentMenu( "CleverAdsSolutions/UserConsent/Consent UI" )]
     public sealed class UserConsentUI : MonoBehaviour
     {
+#pragma warning disable 0649
         [Header( "Panels" )]
         [SerializeField]
         private GameObject consentTextContainer;
@@ -36,6 +37,7 @@ namespace CAS.UserConsent
         [Header( "Optional" )]
         public ConsentRequestParameters parameters;
         public UnityEvent onConsent;
+#pragma warning restore 0649
 
         private void Awake()
         {
@@ -72,6 +74,9 @@ namespace CAS.UserConsent
                 mediationSettings.gameObject.SetActive( false );
                 mediationSettings.SetMessage( parameters.GetSettingsMessage( language ) );
                 mediationSettings.OnConsent.AddListener( OnMediationSettingsApplied );
+                if (parameters.settingsTogglePrefab)
+                    mediationSettings.policyPrefab = parameters.settingsTogglePrefab;
+
                 if (mediationSettingsBtn)
                 {
                     mediationSettingsBtn.gameObject.SetActive( parameters.withMediationSettings );
@@ -82,7 +87,7 @@ namespace CAS.UserConsent
             if (consentText)
             {
                 var message = parameters.GetConsentMessage( language );
-                if(!string.IsNullOrEmpty( message ))
+                if (!string.IsNullOrEmpty( message ))
                     consentText.text = message;
             }
 
@@ -100,7 +105,7 @@ namespace CAS.UserConsent
 
             if (privacyPolicyBtn)
             {
-                if (!string.IsNullOrEmpty( parameters.privacyPolicyUrl ))
+                if (!string.IsNullOrEmpty( parameters.GetPrivacyPolicyUrl( Application.platform ) ))
                 {
                     privacyPolicyBtn.gameObject.SetActive( true );
                     privacyPolicyBtn.onClick.AddListener( OnOpenCompanyPrivacyPolicy );
@@ -113,7 +118,7 @@ namespace CAS.UserConsent
 
             if (termsOfUseBtn)
             {
-                if (!string.IsNullOrEmpty( parameters.termsOfUseUrl ))
+                if (!string.IsNullOrEmpty( parameters.GetTermsOfUseUrl( Application.platform ) ))
                 {
                     termsOfUseBtn.gameObject.SetActive( true );
                     termsOfUseBtn.onClick.AddListener( OnOpenTermsOfUse );
@@ -127,16 +132,30 @@ namespace CAS.UserConsent
 
         private void OnOpenCompanyPrivacyPolicy()
         {
-            Application.OpenURL( parameters.privacyPolicyUrl );
+            Application.OpenURL( parameters.GetPrivacyPolicyUrl( Application.platform ) );
         }
 
         private void OnOpenTermsOfUse()
         {
-            Application.OpenURL( parameters.termsOfUseUrl );
+            Application.OpenURL( parameters.GetTermsOfUseUrl( Application.platform ) );
         }
 
         private void ShowConsentPanel()
         {
+            if (parameters.withRequestTrackingTransparency)
+            {
+                CAS.iOS.AppTrackingTransparency.OnAuthorizationRequestComplete += ShowConsentContainer;
+                CAS.iOS.AppTrackingTransparency.Request();
+            }
+            else
+            {
+                consentTextContainer.SetActive( true );
+            }
+        }
+
+        private void ShowConsentContainer( iOS.AppTrackingTransparency.Status status )
+        {
+            CAS.iOS.AppTrackingTransparency.OnAuthorizationRequestComplete -= ShowConsentContainer;
             consentTextContainer.SetActive( true );
         }
 

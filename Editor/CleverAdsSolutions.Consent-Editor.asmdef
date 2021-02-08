@@ -2,7 +2,8 @@
     "name": "CAS.UserConsent-Editor",
     "references": [
         "CAS.UserConsent",
-        "CleverAdsSolutions-Editor"
+        "CleverAdsSolutions-Editor",
+        "CleverAdsSolutions"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
