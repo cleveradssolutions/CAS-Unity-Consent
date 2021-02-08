@@ -6,7 +6,8 @@
 ### Features
 - Added options to set Privacy Policy and Terms Of Use URLs for each runtime platform.
 - Added option to override Mediation settings toggle UI prefab.
-- Improvements GUI Consent request parameters.
+- Improvements to Consent request parameters asset editor.
+- Improvements to canvas GUI for landscape orientation. 
 - [iOS] Added option to request user authorization to access app-related data for tracking the user or the device.
 
 ## [1.0.0] - 2021-01-27
