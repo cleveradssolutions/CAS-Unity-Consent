@@ -8,30 +8,7 @@ namespace CAS.UserConsent
     [Serializable]
     public sealed class ConsentRequestParameters : ScriptableObject
     {
-        [Serializable]
-        public sealed class TypedText
-        {
-            public int id;
-            public string text;
-
-            public TypedText() { }
-            public TypedText( SystemLanguage language, string text )
-            {
-                this.id = (int)language;
-                this.text = text;
-            }
-
-            public TypedText( RuntimePlatform platform, string text )
-            {
-                this.id = ( int )platform;
-                this.text = text;
-            }
-
-            public SystemLanguage language { get { return ( SystemLanguage )id; } }
-
-            public RuntimePlatform Platform { get { return ( RuntimePlatform )id; } }
-        }
-
+        #region Fileds
         public const string defaultAssetPath = "CASConsentRequestParameters";
 
         public Action OnConsent;
@@ -64,17 +41,30 @@ namespace CAS.UserConsent
         private TypedText[] settingsMessage;
 
         internal int resetStatus = 0;
+        #endregion
 
         /// <summary>
         /// Request user consent.
         /// Returns UI otherwise NULL when consent has already been obtained. 
         /// </summary>
         /// <exception cref="NullReferenceException">Consent Request require UserConsentUI prefab!</exception>
+        [Obsolete( "Renamed to Present()" )]
         public UserConsentUI Request()
         {
             return ConsentClient.Request( this );
         }
 
+        /// <summary>
+        /// Request user consent.
+        /// Returns UI otherwise NULL when consent has already been obtained. 
+        /// </summary>
+        /// <exception cref="NullReferenceException">Consent Request require UserConsentUI prefab!</exception>
+        public UserConsentUI Present()
+        {
+            return ConsentClient.Request( this );
+        }
+
+        #region Override options
         public ConsentRequestParameters WithCallback( Action listener )
         {
             OnConsent += listener;
@@ -208,7 +198,10 @@ namespace CAS.UserConsent
             return this;
         }
 
-        public string GetPrivacyPolicyUrl(RuntimePlatform platform )
+        #endregion
+
+        #region Get text methods
+        public string GetPrivacyPolicyUrl( RuntimePlatform platform )
         {
             return GetTypedText( privacyPolicyUrl, ( int )platform );
         }
@@ -225,7 +218,7 @@ namespace CAS.UserConsent
 
         public string GetSettingsMessage( SystemLanguage language )
         {
-            return GetTypedText( settingsMessage, (int)language );
+            return GetTypedText( settingsMessage, ( int )language );
         }
 
         private string GetTypedText( TypedText[] source, int id )
@@ -238,6 +231,31 @@ namespace CAS.UserConsent
                     return source[i].text;
             }
             return source[0].text;
+        }
+        #endregion
+
+        [Serializable]
+        public sealed class TypedText
+        {
+            public int id;
+            public string text;
+
+            public TypedText() { }
+            public TypedText( SystemLanguage language, string text )
+            {
+                this.id = ( int )language;
+                this.text = text;
+            }
+
+            public TypedText( RuntimePlatform platform, string text )
+            {
+                this.id = ( int )platform;
+                this.text = text;
+            }
+
+            public SystemLanguage language { get { return ( SystemLanguage )id; } }
+
+            public RuntimePlatform Platform { get { return ( RuntimePlatform )id; } }
         }
     }
 }

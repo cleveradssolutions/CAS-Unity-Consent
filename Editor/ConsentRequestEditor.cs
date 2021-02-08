@@ -37,7 +37,7 @@ namespace CAS.UserConsent
             if (!requestOnAwakeProp.boolValue)
             {
                 EditorGUI.indentLevel++;
-                EditorGUILayout.HelpBox( "To request user consent, call the public method 'Request()'", MessageType.None );
+                EditorGUILayout.HelpBox( "To request user consent, call the public method 'Present()'", MessageType.None );
                 EditorGUI.indentLevel--;
             }
             EditorGUI.BeginChangeCheck();

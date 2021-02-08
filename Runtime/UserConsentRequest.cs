@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using CAS.UserConsent;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace CAS.UserConsent
 {
-    [AddComponentMenu( "CleverAdsSolutions/UserConsent/Request" )]
+    [AddComponentMenu( "CleverAdsSolutions/UserConsent/Consent Request" )]
     public class UserConsentRequest : MonoBehaviour
     {
         public bool requestOnAwake = true;
@@ -18,10 +16,16 @@ namespace CAS.UserConsent
         protected void Start()
         {
             if (requestOnAwake)
-                Request();
+                Present();
         }
 
+        [Obsolete("Renamed to Present()")]
         public void Request()
+        {
+            Present();
+        }
+
+        public void Present()
         {
             if (!parameters)
                 parameters = UserConsent.BuildRequest();
@@ -31,7 +35,7 @@ namespace CAS.UserConsent
             if (resetUserInfo)
                 parameters.WithResetUserInfo();
             parameters.WithCallback( OnConsentCallback )
-                      .Request();
+                      .Present();
         }
 
         private void OnConsentCallback()

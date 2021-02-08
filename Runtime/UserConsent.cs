@@ -5,10 +5,10 @@ namespace CAS.UserConsent
 {
     public static class UserConsent
     {
-        public const string version = "1.1.0";
+        public const string version = "1.1.1";
 
         /// <summary>
-        /// User last consent status values.
+        /// User latest consent status values.
         /// If the user has not consent yet then return <see cref="ConsentStatus.Undefined"/>.
         /// </summary>
         public static ConsentStatus GetStatus()
@@ -17,7 +17,7 @@ namespace CAS.UserConsent
         }
 
         /// <summary>
-        /// User last selected year of birth.
+        /// User latest selected year of birth.
         /// If the user has not chosen a year of birth yet then return -1.
         /// </summary>
         public static int GetYearOfBirth()

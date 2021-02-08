@@ -1,5 +1,9 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.1.1] - 2021-02-08
+### Changes
+- Rename methods `Request()` to `Present()`.
+
 ## [1.1.0] - 2021-02-08
 ### Dependencies
 - CleverAdsSolutions - [1.9.9](https://github.com/cleveradssolutions/CAS-Unity/releases)
