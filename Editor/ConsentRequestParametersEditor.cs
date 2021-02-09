@@ -41,8 +41,6 @@ namespace CAS.UserConsent
 
         private SerializedProperty currentListProp;
 
-        public GUIStyle wordWrapTextArea = null;
-
         private string newCASVersion = null;
         private bool allowedPackageUpdate = false;
         private bool trackingDescriptionExist = false;
@@ -96,17 +94,12 @@ namespace CAS.UserConsent
                 () => newCASVersion = Utils.GetNewVersionOrNull( gitRepoName, UserConsent.version, false );
 
 
-            var iosSettings = Utils.GetSettingsAsset( BuildTarget.iOS );
-            trackingDescriptionExist = !string.IsNullOrEmpty( iosSettings.trackingUsageDescription );
+            var iosSettings = Utils.GetSettingsAsset( BuildTarget.iOS ); // TODO set false crate
+            trackingDescriptionExist = iosSettings && !string.IsNullOrEmpty( iosSettings.trackingUsageDescription );
         }
 
         public override void OnInspectorGUI()
         {
-            if (wordWrapTextArea == null)
-            {
-                wordWrapTextArea = new GUIStyle( EditorStyles.textArea );
-                wordWrapTextArea.wordWrap = true;
-            }
             var obj = serializedObject;
             obj.UpdateIfRequiredOrScript();
 
@@ -202,7 +195,7 @@ namespace CAS.UserConsent
             }
 
             var text = item.FindPropertyRelative( "text" );
-            text.stringValue = EditorGUI.TextArea( rect, text.stringValue, wordWrapTextArea );
+            text.stringValue = EditorGUI.TextArea( rect, text.stringValue, HelpStyles.wordWrapTextAred );
         }
 
         private void DrawMediationMessageElement( Rect rect, int index, bool isActive, bool isFocused )
@@ -226,7 +219,7 @@ namespace CAS.UserConsent
             }
 
             var text = item.FindPropertyRelative( "text" );
-            text.stringValue = EditorGUI.TextArea( rect, text.stringValue, wordWrapTextArea );
+            text.stringValue = EditorGUI.TextArea( rect, text.stringValue, HelpStyles.wordWrapTextAred );
         }
 
         private void DrawPrivacyPolicyHeader( Rect rect )

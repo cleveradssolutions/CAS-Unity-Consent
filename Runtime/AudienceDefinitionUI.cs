@@ -23,6 +23,8 @@ namespace CAS.UserConsent
         public UnityEvent OnUnderAgeOfConsent;
         public UnityEvent OnConsentRequired;
 
+        private Color selectedYearColor;
+        private Color defaultYearColor;
         private Vector2[] textPositions;
         private int currentYear;
         private int selectedYear;
@@ -30,6 +32,16 @@ namespace CAS.UserConsent
 
         private void Start()
         {
+            if (components.Count == 5)
+            {
+                defaultYearColor = components[1].color;
+                selectedYearColor = components[2].color;
+            }
+            else
+            {
+                defaultYearColor = Color.clear;
+                selectedYearColor = Color.clear;
+            }
             currentYear = DateTime.Now.Year;
             textPositions = new Vector2[components.Count];
             for (int i = 0; i < components.Count; i++)
@@ -116,12 +128,14 @@ namespace CAS.UserConsent
 
         private void SetTextColors()
         {
+            if (selectedYearColor == Color.clear)
+                return;
             for (int i = 0; i < components.Count; i++)
             {
                 if (i == 2)
-                    components[i].color = Color.black;
+                    components[i].color = selectedYearColor;
                 else
-                    components[i].color = Color.gray;
+                    components[i].color = defaultYearColor;
             }
         }
 

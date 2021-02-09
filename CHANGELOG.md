@@ -1,5 +1,9 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.1.2] - 2021-02-09
+### Changes
+- Years text colors, on Audience Definition form, will be saved and changed to the values that are defined in the prefab `AudienceDefinition/Years/[0..4]/Text.color`.
+
 ## [1.1.1] - 2021-02-08
 ### Changes
 - Rename methods `Request()` to `Present()`.
