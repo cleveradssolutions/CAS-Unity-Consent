@@ -114,6 +114,7 @@ namespace CAS.UserConsent
             initialized = false;
 
             PlayerPrefs.Save();
+            ConsentClient.SetMediationExtras();
             OnConsent.Invoke();
         }
 

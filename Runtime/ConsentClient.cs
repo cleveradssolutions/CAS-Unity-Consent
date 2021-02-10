@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CAS.UserConsent
@@ -57,25 +58,27 @@ namespace CAS.UserConsent
             PlayerPrefs.DeleteKey( yearOfBirthPref );
         }
 
-        internal static CASInitSettings SetMediationExtras( CASInitSettings builder )
+        internal static void SetMediationExtras()
         {
             var consent = PlayerPrefs.GetString( consentStringPref, "" );
             if (consent.Length == 0 || consent == consentDenied || consent == consentAccepted)
-                return builder;
+                return;
 
             var active = MobileAds.GetActiveNetworks();
             if (active.Length != consent.Length)
-                return builder;
+                return;
+            var result = new Dictionary<string, string>();
             for (int i = 0; i < consent.Length; i++)
             {
                 if (consent[i] != '-')
                 {
                     var tag = GetNetworkTag( active[i] );
-                    builder.WithMediationExtras( tag + "_gdpr", consent[i].ToString() );
-                    //builder.WithMediationExtras( tag + "_ccpa", consent[i].ToString() );
+                    result[tag + "_gdpr"] = consent[i].ToString();
+                    //result[tag + "_ccpa"] = consent[i].ToString();
                 }
             }
-            return builder;
+            if (result.Count > 0)
+                MediationExtras.SetGlobalEtras( result );
         }
 
         internal static UserConsentUI Request( ConsentRequestParameters parameters )
@@ -94,6 +97,7 @@ namespace CAS.UserConsent
                 if (savedStatus != ConsentStatus.Undefined)
                 {
                     MobileAds.settings.userConsent = savedStatus;
+                    SetMediationExtras();
                     if (parameters.OnConsent != null)
                         parameters.OnConsent();
                     return null;

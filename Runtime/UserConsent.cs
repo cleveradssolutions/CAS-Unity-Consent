@@ -5,7 +5,7 @@ namespace CAS.UserConsent
 {
     public static class UserConsent
     {
-        public const string version = "1.1.2";
+        public const string version = "1.2.0";
 
         /// <summary>
         /// User latest consent status values.
@@ -47,12 +47,10 @@ namespace CAS.UserConsent
             return ScriptableObject.CreateInstance<ConsentRequestParameters>();
         }
 
-        /// <summary>
-        /// Apply User consent settings each mediation network to <see cref="IMediationManager"/>.
-        /// </summary>
+        [Obsolete( "Deprecated. Additional calls are no longer required to apply user consent settings." )]
         public static CASInitSettings WithUserConsent( this CASInitSettings builder )
         {
-            return ConsentClient.SetMediationExtras( builder );
+            return builder;
         }
     }
 }

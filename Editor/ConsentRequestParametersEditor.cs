@@ -94,8 +94,8 @@ namespace CAS.UserConsent
                 () => newCASVersion = Utils.GetNewVersionOrNull( gitRepoName, UserConsent.version, false );
 
 
-            var iosSettings = Utils.GetSettingsAsset( BuildTarget.iOS ); // TODO set false crate
-            trackingDescriptionExist = iosSettings && !string.IsNullOrEmpty( iosSettings.trackingUsageDescription );
+            var iosSettings = Utils.GetSettingsAsset( BuildTarget.iOS, false );
+            trackingDescriptionExist = iosSettings && !string.IsNullOrEmpty( iosSettings.defaultIOSTrakingUsageDescription );
         }
 
         public override void OnInspectorGUI()
