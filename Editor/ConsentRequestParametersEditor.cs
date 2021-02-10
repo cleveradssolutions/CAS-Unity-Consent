@@ -152,7 +152,8 @@ namespace CAS.UserConsent
             CAS.UEditor.HelpStyles.BeginBoxScope();
             EditorGUILayout.PropertyField( withDeclineOptionProp );
             DrawPrefabSelector( "Consent UI Prefab",
-                uiPrefabProp, templateUIPrefabName, customUIPrefabName );
+                uiPrefabProp, templateUIPrefabName, customUIPrefabName,
+                typeof( UserConsentUI ) );
 
             currentListProp = consentMessageProp;
             consentMessageList.DoLayoutList();
@@ -163,7 +164,8 @@ namespace CAS.UserConsent
             bool disableTogglePrefab = !withMediationSettingsProp.boolValue;
             EditorGUI.BeginDisabledGroup( disableTogglePrefab );
             DrawPrefabSelector( "Toggle UI Prefab",
-                settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName );
+                settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName,
+                typeof( MediationPolicyUI ) );
             currentListProp = settingsMessageProp;
             settingsMessageList.DoLayoutList();
             EditorGUI.EndDisabledGroup();
@@ -242,7 +244,7 @@ namespace CAS.UserConsent
             EditorGUI.LabelField( rect, "Mediation Settings Message" );
         }
 
-        private void DrawPrefabSelector( string title, SerializedProperty prop, string templateName, string customName )
+        private void DrawPrefabSelector( string title, SerializedProperty prop, string templateName, string customName, Type objType )
         {
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField( title );
@@ -258,7 +260,7 @@ namespace CAS.UserConsent
             }
             EditorGUILayout.EndHorizontal();
             prop.objectReferenceValue =
-                EditorGUILayout.ObjectField( prop.objectReferenceValue, typeof( MediationPolicyUI ), false );
+                EditorGUILayout.ObjectField( prop.objectReferenceValue, objType, false );
             EditorGUILayout.Space();
         }
 
