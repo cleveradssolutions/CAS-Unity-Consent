@@ -35,11 +35,6 @@ namespace CAS.UserConsent
         [SerializeField]
         private TypedText[] termsOfUseUrl;
 
-        [SerializeField]
-        private TypedText[] consentMessage;
-        [SerializeField]
-        private TypedText[] settingsMessage;
-
         internal int resetStatus = 0;
         #endregion
 
@@ -161,76 +156,17 @@ namespace CAS.UserConsent
             resetStatus = 2;
             return this;
         }
-
-        public ConsentRequestParameters WithConsentMessage( string message )
-        {
-            consentMessage = new TypedText[] { new TypedText( SystemLanguage.English, message ) };
-            return this;
-        }
-
-        public ConsentRequestParameters WithConsentMessage( Dictionary<SystemLanguage, string> text )
-        {
-            consentMessage = new TypedText[text.Count];
-            int i = 0;
-            foreach (var item in text)
-            {
-                consentMessage[i] = new TypedText( item.Key, item.Value );
-                i++;
-            }
-            return this;
-        }
-
-        public ConsentRequestParameters WithSettingsMessage( string message )
-        {
-            settingsMessage = new TypedText[] { new TypedText( SystemLanguage.English, message ) };
-            return this;
-        }
-
-        public ConsentRequestParameters WithSettingsMessage( Dictionary<SystemLanguage, string> text )
-        {
-            settingsMessage = new TypedText[text.Count];
-            int i = 0;
-            foreach (var item in text)
-            {
-                settingsMessage[i] = new TypedText( item.Key, item.Value );
-                i++;
-            }
-            return this;
-        }
-
         #endregion
 
         #region Get text methods
         public string GetPrivacyPolicyUrl( RuntimePlatform platform )
         {
-            return GetTypedText( privacyPolicyUrl, ( int )platform );
+            return privacyPolicyUrl.GetTypedText( ( int )platform );
         }
 
         public string GetTermsOfUseUrl( RuntimePlatform platform )
         {
-            return GetTypedText( termsOfUseUrl, ( int )platform );
-        }
-
-        public string GetConsentMessage( SystemLanguage language )
-        {
-            return GetTypedText( consentMessage, ( int )language );
-        }
-
-        public string GetSettingsMessage( SystemLanguage language )
-        {
-            return GetTypedText( settingsMessage, ( int )language );
-        }
-
-        private string GetTypedText( TypedText[] source, int id )
-        {
-            if (source.Length == 0)
-                return "";
-            for (int i = 0; i < source.Length; i++)
-            {
-                if (source[i].id == id)
-                    return source[i].text;
-            }
-            return source[0].text;
+            return termsOfUseUrl.GetTypedText( ( int )platform );
         }
         #endregion
 

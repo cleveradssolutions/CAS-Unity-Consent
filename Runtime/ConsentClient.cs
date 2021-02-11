@@ -166,5 +166,17 @@ namespace CAS.UserConsent
                     return string.Empty;
             }
         }
+
+        public static string GetTypedText( this ConsentRequestParameters.TypedText[] source, int id )
+        {
+            if (source.Length == 0)
+                return "";
+            for (int i = 0; i < source.Length; i++)
+            {
+                if (source[i].id == id)
+                    return source[i].text;
+            }
+            return source[0].text;
+        }
     }
 }

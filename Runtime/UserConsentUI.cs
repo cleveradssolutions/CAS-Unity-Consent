@@ -23,8 +23,6 @@ namespace CAS.UserConsent
         private Button privacyPolicyBtn;
         [SerializeField]
         private Button termsOfUseBtn;
-        [SerializeField]
-        private Text consentText;
 
         [Header( "Consent options" )]
         [SerializeField]
@@ -72,7 +70,6 @@ namespace CAS.UserConsent
             if (mediationSettings)
             {
                 mediationSettings.gameObject.SetActive( false );
-                mediationSettings.SetMessage( parameters.GetSettingsMessage( language ) );
                 mediationSettings.OnConsent.AddListener( OnMediationSettingsApplied );
                 if (parameters.settingsTogglePrefab)
                     mediationSettings.policyPrefab = parameters.settingsTogglePrefab;
@@ -82,13 +79,6 @@ namespace CAS.UserConsent
                     mediationSettingsBtn.gameObject.SetActive( parameters.withMediationSettings );
                     mediationSettingsBtn.onClick.AddListener( OnOpenOptions );
                 }
-            }
-
-            if (consentText)
-            {
-                var message = parameters.GetConsentMessage( language );
-                if (!string.IsNullOrEmpty( message ))
-                    consentText.text = message;
             }
 
             if (acceptBtn)

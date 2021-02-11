@@ -30,14 +30,9 @@ namespace CAS.UserConsent
         private SerializedProperty settingsTogglePrefabProp;
         private SerializedProperty privacyPolicyUrlProp;
         private SerializedProperty termsOfUseUrlProp;
-        private SerializedProperty consentMessageProp;
-        private SerializedProperty settingsMessageProp;
 
         private ReorderableList privacyPolicyList;
         private ReorderableList termsOfUseList;
-
-        private ReorderableList consentMessageList;
-        private ReorderableList settingsMessageList;
 
         private SerializedProperty currentListProp;
 
@@ -57,36 +52,20 @@ namespace CAS.UserConsent
             settingsTogglePrefabProp = props.FindProperty( "settingsTogglePrefab" );
             privacyPolicyUrlProp = props.FindProperty( "privacyPolicyUrl" );
             termsOfUseUrlProp = props.FindProperty( "termsOfUseUrl" );
-            consentMessageProp = props.FindProperty( "consentMessage" );
-            settingsMessageProp = props.FindProperty( "settingsMessage" );
-
-            consentMessageList = new ReorderableList( props, consentMessageProp, true, true, true, true )
-            {
-                drawHeaderCallback = DrawConsentMessageHeader,
-                drawElementCallback = DrawLocalizedMessageElement
-            };
-            consentMessageList.elementHeight = EditorGUIUtility.singleLineHeight * 3.0f + 8.0f;
-
-            settingsMessageList = new ReorderableList( props, settingsMessageProp, true, true, true, true )
-            {
-                drawHeaderCallback = DrawSettingsMessageHeader,
-                drawElementCallback = DrawLocalizedMessageElement
-            };
-            settingsMessageList.elementHeight = consentMessageList.elementHeight;
 
             privacyPolicyList = new ReorderableList( props, privacyPolicyUrlProp, true, true, true, true )
             {
                 drawHeaderCallback = DrawPrivacyPolicyHeader,
-                drawElementCallback = DrawMediationMessageElement
+                drawElementCallback = DrawURLElement,
+                elementHeight = EditorGUIUtility.singleLineHeight * 2.0f + 8.0f
             };
-            privacyPolicyList.elementHeight = EditorGUIUtility.singleLineHeight * 2.0f + 8.0f;
 
             termsOfUseList = new ReorderableList( props, termsOfUseUrlProp, true, true, true, true )
             {
                 drawHeaderCallback = DrawTermsOfUseHeader,
-                drawElementCallback = DrawMediationMessageElement
+                drawElementCallback = DrawURLElement,
+                elementHeight = privacyPolicyList.elementHeight
             };
-            termsOfUseList.elementHeight = privacyPolicyList.elementHeight;
 
             allowedPackageUpdate = Utils.IsPackageExist( packageName );
 
@@ -122,22 +101,8 @@ namespace CAS.UserConsent
                 }
             }
 
+            EditorGUILayout.PropertyField( withDeclineOptionProp );
             EditorGUILayout.PropertyField( showInEditorProp );
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel( "Reset messages" );
-            if (GUILayout.Button( "to default", EditorStyles.miniButton, GUILayout.ExpandWidth( false ) ))
-            {
-                consentMessageProp.arraySize = 1;
-                var item = consentMessageProp.GetArrayElementAtIndex( 0 );
-                item.FindPropertyRelative( "id" ).intValue = ( int )SystemLanguage.English;
-                item.FindPropertyRelative( "text" ).stringValue = GetDefaultConsentMessage();
-
-                settingsMessageProp.arraySize = 1;
-                item = settingsMessageProp.GetArrayElementAtIndex( 0 );
-                item.FindPropertyRelative( "id" ).intValue = ( int )SystemLanguage.English;
-                item.FindPropertyRelative( "text" ).stringValue = GetDefaultSettingsMessage();
-            }
-            EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
             Utils.AboutRepoGUI( gitRepoName, allowedPackageUpdate, UserConsent.version, ref newCASVersion );
@@ -149,15 +114,9 @@ namespace CAS.UserConsent
             termsOfUseList.DoLayoutList();
             EditorGUILayout.Space();
 
-            CAS.UEditor.HelpStyles.BeginBoxScope();
-            EditorGUILayout.PropertyField( withDeclineOptionProp );
             DrawPrefabSelector( "Consent UI Prefab",
                 uiPrefabProp, templateUIPrefabName, customUIPrefabName,
                 typeof( UserConsentUI ) );
-
-            currentListProp = consentMessageProp;
-            consentMessageList.DoLayoutList();
-            CAS.UEditor.HelpStyles.EndBoxScope();
 
             CAS.UEditor.HelpStyles.BeginBoxScope();
             EditorGUILayout.PropertyField( withMediationSettingsProp );
@@ -166,8 +125,6 @@ namespace CAS.UserConsent
             DrawPrefabSelector( "Toggle UI Prefab",
                 settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName,
                 typeof( MediationPolicyUI ) );
-            currentListProp = settingsMessageProp;
-            settingsMessageList.DoLayoutList();
             EditorGUI.EndDisabledGroup();
             if (disableTogglePrefab)
                 settingsTogglePrefabProp.objectReferenceValue = null;
@@ -176,31 +133,7 @@ namespace CAS.UserConsent
             obj.ApplyModifiedProperties();
         }
 
-        private void DrawLocalizedMessageElement( Rect rect, int index, bool isActive, bool isFocused )
-        {
-            var height = rect.height;
-            var item = currentListProp.GetArrayElementAtIndex( index );
-            rect.yMin += 1;
-            rect.yMax -= 1;
-            if (currentListProp.arraySize > 1)
-            {
-                rect.yMax -= height * 0.67f + 2;
-
-                var id = item.FindPropertyRelative( "id" );
-                var label = ( index == 0 ? "Preferred " : "Language " );
-                if (currentListProp.arraySize > 5)
-                    label += id.intValue;
-                id.intValue
-                    = Convert.ToInt32( EditorGUI.EnumPopup( rect, label, ( SystemLanguage )id.intValue ) );
-                rect.yMin = rect.yMax + 1;
-                rect.yMax += height * 0.67f - 1;
-            }
-
-            var text = item.FindPropertyRelative( "text" );
-            text.stringValue = EditorGUI.TextArea( rect, text.stringValue, HelpStyles.wordWrapTextAred );
-        }
-
-        private void DrawMediationMessageElement( Rect rect, int index, bool isActive, bool isFocused )
+        private void DrawURLElement( Rect rect, int index, bool isActive, bool isFocused )
         {
             var height = rect.height;
             var item = currentListProp.GetArrayElementAtIndex( index );
@@ -234,16 +167,6 @@ namespace CAS.UserConsent
             EditorGUI.LabelField( rect, "Terms of Use URL" );
         }
 
-        private void DrawConsentMessageHeader( Rect rect )
-        {
-            EditorGUI.LabelField( rect, "Consent Message" );
-        }
-
-        private void DrawSettingsMessageHeader( Rect rect )
-        {
-            EditorGUI.LabelField( rect, "Mediation Settings Message" );
-        }
-
         private void DrawPrefabSelector( string title, SerializedProperty prop, string templateName, string customName, Type objType )
         {
             EditorGUILayout.BeginHorizontal();
@@ -274,9 +197,7 @@ namespace CAS.UserConsent
             var asset = AssetDatabase.LoadAssetAtPath<ConsentRequestParameters>( assetPath );
             if (!asset)
             {
-                asset = CreateInstance<ConsentRequestParameters>()
-                    .WithConsentMessage( GetDefaultConsentMessage() )
-                    .WithSettingsMessage( GetDefaultSettingsMessage() );
+                asset = CreateInstance<ConsentRequestParameters>();
 
                 var uiPrefab = LoadUITemplatePrefab( templateUIPrefabName );
                 if (uiPrefab)
@@ -290,24 +211,6 @@ namespace CAS.UserConsent
 
             Selection.activeObject = asset;
             EditorGUIUtility.PingObject( asset );
-        }
-
-        private static string GetDefaultConsentMessage()
-        {
-            return "In-app purchase and advertising messages are the part of our mobile app. " +
-                "Also there is an option to watch advertisements for a reward. " +
-                "In-app purchasing refers to the buying of goods by using real money from your account. " +
-                "You can disable or adjust the ability to make in-app purchases in your device settings. " +
-                "In order to improve the quality of our apps we collect and process your personal information. " +
-                "By pressing \"Accept\" you agree to these conditions. " +
-                "Visit our Privacy Policy to get more information about storage and usage of the received data.";
-        }
-
-        private static string GetDefaultSettingsMessage()
-        {
-            return "With the button \"Accept\" you agree to the use of every individual third party partner stated below. " +
-                "In case of any doubts, you can check their privacy policies for details of the technologies and data processing methods used. " +
-                "And if needed, you can disable any ad network.";
         }
 
         private static GameObject CreateCustomUIPrefab( string name, string template )

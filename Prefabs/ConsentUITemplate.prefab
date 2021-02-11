@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 48348062495784247}
   - component: {fileID: 48348062495784244}
   - component: {fileID: 5589450246461809695}
+  - component: {fileID: 319929944022667953}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -93,6 +94,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &319929944022667953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348062495784250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Accept
+  - id: 30
+    text: "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u044E"
+  - id: 1
+    text: "\u0645\u0648\u0627\u0641\u0642"
+  - id: 6
+    text: "\u63A5\u53D7"
+  - id: 14
+    text: J'accepte
+  - id: 15
+    text: Akzeptieren
+  - id: 20
+    text: Saya setuju
+  - id: 21
+    text: Accetto
+  - id: 23
+    text: "\uB3D9\uC758"
+  - id: 27
+    text: "Akceptuj\u0119"
+  - id: 28
+    text: Aceitar
+  - id: 34
+    text: Acepto
+  - id: 35
+    text: "Jag godk\xE4nner"
+  - id: 37
+    text: Kabul ediyorum
+  - id: 39
+    text: "Ch\u1EA5p nh\u1EADn"
 --- !u!1 &48348062541502629
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +609,7 @@ GameObject:
   - component: {fileID: 48348062791754402}
   - component: {fileID: 48348062791754403}
   - component: {fileID: 1643048293757666875}
+  - component: {fileID: 5033087220145729330}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -642,6 +691,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &5033087220145729330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348062791754401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Deselect all
+  - id: 30
+    text: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0432\u0441\u0435"
+  - id: 1
+    text: "\u0625\u0644\u063A\u0627\u0621 \u0627\u0644\u0643\u0644"
+  - id: 6
+    text: "\u53D6\u6D88\u5168\u90E8"
+  - id: 14
+    text: Annuler tout
+  - id: 15
+    text: "Alles zur\xFCcksetzen"
+  - id: 20
+    text: Batalkan semua
+  - id: 21
+    text: Cancella tutto
+  - id: 23
+    text: Odznacz wszystko
+  - id: 27
+    text: "\uBAA8\uB450 \uCDE8\uC18C"
+  - id: 28
+    text: Desativar tudo
+  - id: 34
+    text: Cancelalo todo
+  - id: 35
+    text: Avbryt alla
+  - id: 37
+    text: Hepsini iptal et
+  - id: 39
+    text: "H\u1EE7y t\u1EA5t c\u1EA3"
 --- !u!1 &48348062807131853
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 2019
 --- !u!1 &48348062856447052
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 2016
 --- !u!1 &48348063152031518
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +1040,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 2017
 --- !u!1 &48348063199003340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationTime: 0.15
   userInitialAge: 12
-  selectedYearColor: {r: 0, g: 0, b: 0, a: 1}
   components:
   - {fileID: 48348063775683384}
   - {fileID: 48348062807131855}
@@ -1382,7 +1477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 2018
 --- !u!1 &48348063406638308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000019846382}
+  m_AnchoredPosition: {x: 0, y: 0.000010577402}
   m_SizeDelta: {x: -0.000030517578, y: 10}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &48348063406638305
@@ -1684,6 +1779,7 @@ GameObject:
   - component: {fileID: 48348063545478079}
   - component: {fileID: 48348063545478073}
   - component: {fileID: 48348063545478078}
+  - component: {fileID: 217648920257297606}
   m_Layer: 5
   m_Name: 'SettingsMessage '
   m_TagString: Untagged
@@ -1749,10 +1845,145 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "With the button \u201CAccept\u201D you agree to the use of every individual
-    third party partner stated below. In case of any doubts, you can check their privacy
+  m_Text: With the button "Accept" you agree to the use of every individual third
+    party partner stated below. In case of any doubts, you can check their privacy
     policies for details of the technologies and data processing methods used. And
-    if needed, you can disable any ad network."
+    if needed, you can disable any ad network.
+--- !u!114 &217648920257297606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348063545478076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: With the button "Accept" you agree to the use of every individual third
+      party partner stated below. In case of any doubts, you can check their privacy
+      policies for details of the technologies and data processing methods used. And
+      if needed, you can disable any ad network.
+  - id: 30
+    text: "\u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043A\u043D\u043E\u043F\u043A\u0443
+      \u041F\u0440\u0438\u043D\u0438\u043C\u0430\u044E, \u0412\u044B \u0434\u0430\u0435\u0442\u0435
+      \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435
+      \u0432\u0430\u0448\u0435\u0439 \u043B\u0438\u0447\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438
+      \u0441\u0442\u043E\u0440\u043E\u043D\u043D\u0438\u043C\u0438 \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u0430\u043C\u0438,
+      \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043F\u0435\u0440\u0435\u0447\u0438\u0441\u043B\u0435\u043D\u044B
+      \u043D\u0438\u0436\u0435. \u0422\u0430\u043A\u0436\u0435 \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+      \u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u0442\u044C\u0441\u044F \u0441
+      \u041F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438
+      \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u0430,
+      \u043A\u0430\u0441\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0439
+      \u0438 \u043C\u0435\u0442\u043E\u0434\u043E\u0432 \u0441\u0431\u043E\u0440\u0430
+      \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438. \u041F\u0440\u0438
+      \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0441\u0442\u0438
+      \u043B\u044E\u0431\u0443\u044E \u0440\u0435\u043A\u043B\u0430\u043C\u043D\u0443\u044E
+      \u0441\u0435\u0442\u044C \u043C\u043E\u0436\u043D\u043E \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C."
+  - id: 1
+    text: "\u0645\u0646 \u062E\u0644\u0627\u0644 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649
+      \"\u0645\u0648\u0627\u0641\u0642\" \u060C \u0641\u0625\u0646\u0643 \u062A\u0648\u0627\u0641\u0642
+      \u0639\u0644\u0649 \u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0628\u064A\u0627\u0646\u0627\u062A\u0643
+      \u0627\u0644\u0634\u062E\u0635\u064A\u0629 \u0645\u0646 \u0642\u0628\u0644 \u0627\u0644\u0634\u0631\u0643\u0627\u0621
+      \u0627\u0644\u062E\u0627\u0631\u062C\u064A\u064A\u0646 \u0627\u0644\u0645\u0630\u0643\u0648\u0631\u064A\u0646
+      \u0623\u062F\u0646\u0627\u0647. \u0648\u0643\u0630\u0644\u0643 \u064A\u0645\u0643\u0646\u0643
+      \u0642\u0631\u0627\u0621\u0629 \u0633\u064A\u0627\u0633\u0629 \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629
+      \u0644\u0643\u0644 \u0634\u0631\u064A\u0643 \u0645\u0646 \u0634\u0631\u0643\u0627\u0626\u0646\u0627
+      \u0628\u062E\u0635\u0648\u0635 \u062A\u0642\u0646\u064A\u0627\u062A \u0648\u0637\u0631\u0642
+      \u062C\u0645\u0639 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062A. \u064A\u0645\u0643\u0646\u0643
+      \u062A\u0639\u0637\u064A\u0644 \u0623\u064A \u0634\u0628\u0643\u0629 \u0625\u0639\u0644\u0627\u0646\u064A\u0629
+      \u0625\u0630\u0627 \u0644\u0632\u0645 \u0627\u0644\u0623\u0645\u0631"
+  - id: 6
+    text: "\u5185\u90E8\u8D2D\u4E70\u3001 \u9875\u9762\u95F4\u5E7F\u544A\u548C\u5956\u52B1\u5E7F\u544A\u90FD\u662F\u6211\u4EEC\u624B\u673A\u5E94\u7528\u7A0B\u5E8F\u7684\u4E00\u90E8\u5206\u3002
+      \u5185\u90E8\u8D2D\u4E70\u5C31\u662F\u7528\u771F\u5B9E\u7684\u94B1\u8D2D\u4E70\u5546\u54C1\uFF0C
+      \u901A\u8FC7\u60A8\u7684\u5B9E\u9645\u7684\u94F6\u884C\u5361\u6536\u8D39\u7684\u3002
+      \u60A8\u53EF\u4EE5\u5728\u8BBE\u5907\u8BBE\u7F6E\u4E2D\u53D6\u6D88\u6216\u8BBE\u7F6E\u5185\u90E8\u8D2D\u4E70\u9009\u9879\u3002
+      \u5E94\u7528\u7A0B\u5E8F\u6536\u96C6\u548C\u5904\u7406\u60A8\u7684\u4E2A\u4EBA\u4FE1\u606F\u4EE5\u63D0\u9AD8\u5E94\u7528\u7A0B\u5E8F\u7684\u8D28\u91CF\u3002
+      \u70B9\u51FB\u63A5\u53D7\u6309\u952E\uFF0C \u540C\u610F\u8BE5\u6761\u6B3E\u3002
+      \u8BF7\u77E5\u6089\u6211\u4EEC\u7684\u9690\u79C1\u653F\u7B56\uFF0C \u4E86\u89E3\u66F4\u591A\u5173\u4E8E\u6211\u4EEC\u6536\u96C6\u6570\u636E\u7684\u5B58\u50A8\u548C\u4F7F\u7528\u3002"
+  - id: 14
+    text: "En cliquant sur \xABJ'accepte\xBB, vous donnez votre accord \xE0 l'utilisation
+      de vos informations personnelles par les partenaires tiers \xE9num\xE9r\xE9s
+      ci-dessous. Vous pouvez \xE9galement vous familiariser avec la Politique de
+      Confidentialit\xE9 de chaque partenaire concernant les technologies et les m\xE9thodes
+      de collecte d'informations. Tout r\xE9seau publicitaire peut \xEAtre d\xE9sactiv\xE9
+      si n\xE9cessaire."
+  - id: 15
+    text: "Die Taste Akzeptieren dr\xFCckend, stimmen Sie der Benutzung Ihrer pers\xF6nlichen
+      Information von den fremden Partnern, die unten aufgelistet sind, zu. Sie k\xF6nnen
+      auch den Einblick in die Vertraulichkeitspolitik jedes Partners, bez\xFCglich
+      der Technologien und Methoden der Informationssammlung nehmen. Gegebenenfalls
+      kann jedes Werbenetzwerk deaktiviert werden."
+  - id: 20
+    text: Dengan mengklik Setuju, Anda menyetujui penggunaan informasi pribadi Anda
+      oleh mitra pihak ketiga yang tercantum di bawah ini. Anda juga dapat membaca
+      Kebijakan Privasi masing-masing mitra terkait teknologi dan metode pengumpulan
+      informasi tersebut. Jaringan iklan apa pun dapat dinonaktifkan jika perlu.
+  - id: 21
+    text: "Premendo il pulsante Accetto, acconsenti all'uso delle tue informazioni
+      personali da parte dei partner esterni elencati di seguito. Puoi anche familiarizzare
+      con l'Informativa sulla privacy di ciascun partner circa le tecnologie e metodi
+      di raccolta delle informazioni. Ove necessario, si pu\xF2 disattivare qualsiasi
+      rete pubblicitaria."
+  - id: 23
+    text: " \xAB\uB3D9\uC758\xBB\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC544\uB798\uC5D0
+      \uB098\uC5F4\uB41C \uC678\uBD80 \uD30C\uD2B8\uB108\uAC00 \uAC1C\uC778 \uC815\uBCF4\uB97C
+      \uC0AC\uC6A9\uD558\uB294 \uAC83\uC5D0 \uB3D9\uC758\uD558\uB294 \uAC83\uC785\uB2C8\uB2E4.
+      \uB610\uD55C \uC815\uBCF4 \uC218\uC9D1 \uAE30\uC220 \uBC0F \uBC29\uBC95\uACFC
+      \uAD00\uB828\uD558\uC5EC \uAC01 \uD30C\uD2B8\uB108\uC758 \uAC1C\uC778 \uC815\uBCF4
+      \uBCF4\uD638 \uC815\uCC45\uC744 \uC219\uC9C0\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.
+      \uD544\uC694\uD55C \uACBD\uC6B0 \uBAA8\uB4E0 \uAD11\uACE0 \uB124\uD2B8\uC6CC\uD06C\uB97C
+      \uBE44\uD65C\uC131\uD654\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  - id: 27
+    text: "Klikaj\u0105c przycisk \"Akceptuj\u0119\", wyra\u017Casz zgod\u0119 na
+      wykorzystywanie Twoich danych osobowych przez partner\xF3w zewn\u0119trznych,
+      wymienionych poni\u017Cej. Mo\u017Cesz r\xF3wnie\u017C zapozna\u0107 si\u0119
+      z Polityk\u0105 Prywatno\u015Bci ka\u017Cdego partnera w zakresie technologii
+      i metod zbierania informacji. W razie potrzeby ka\u017Cd\u0105 sie\u0107 reklamow\u0105
+      mo\u017Cna wy\u0142\u0105czy\u0107."
+  - id: 28
+    text: "Clicando em Aceitar voc\xEA concorda com o uso da sua informa\xE7\xE3o
+      pessoal por parceiros alheios listados abaixo. Tamb\xE9m pode tomar o conhecimento
+      das Pol\xEDticas de Confidencialidade de cada dos parceiros no que toca \xE0s
+      tecnologias e aos m\xE9todos de recolha da informa\xE7\xE3o. Cada das redes
+      de publicidade pode ser desativada, caso for necess\xE1rio."
+  - id: 34
+    text: "Haciendo clic en el bot\xF3n Acepto, t\xFA das tu consentimiento al uso
+      de tu informaci\xF3n personal por parte de los socios externos, indicados a
+      continuaci\xF3n. Tambi\xE9n puedes leer la Pol\xEDtica de privacidad de cada
+      socio con respecto a las tecnolog\xEDas y m\xE9todos de recopilaci\xF3n de la
+      informaci\xF3n. En un caso necesario, es posible desactivar cualquier red publicitaria."
+  - id: 35
+    text: "Genom att klicka p\xE5 knappen \u201DJag godk\xE4nner\u201D godk\xE4nner
+      du att tredjepartnerna som anges nedan anv\xE4nder din personliga information.
+      Du kan ocks\xE5 bekanta dig med varje partners sekretesspolicy ang\xE5ende teknik
+      och metoder f\xF6r att samla in information. Alla annonsn\xE4tverk kan inaktiveras
+      vid behov."
+  - id: 37
+    text: "Kabul Ediyorum'u t\u0131klayarak ki\u015Fisel bilgilerinizin a\u015Fa\u011F\u0131da
+      listelenen \xFC\xE7\xFCnc\xFC taraf ortaklar\u0131n kullanmalar\u0131na izin
+      vermi\u015F olursunuz. Ayr\u0131ca bilgi toplama teknolojileri ve y\xF6ntemleri
+      ile ilgili olarak her orta\u011F\u0131n Gizlilik Politikas\u0131 hakk\u0131nda
+      bilgi edinebilirsiniz. Gerekirse herhangi bir reklam a\u011F\u0131 devre d\u0131\u015F\u0131
+      b\u0131rak\u0131labilir."
+  - id: 39
+    text: "B\u1EB1ng c\xE1ch nh\u1EA5p v\xE0o nu\u0301t \u0110\u1ED3ng \xFD, B\u1EA1n
+      cho phe\u0301p s\u1EED d\u1EE5ng nh\u01B0\u0303ng th\xF4ng tin c\xE1 nh\xE2n
+      c\u1EE7a b\u1EA1n b\u1EDFi c\xE1c \u0111\u1ED1i t\xE1c kha\u0301c \u0111\u01B0\u1EE3c
+      li\u1EC7t k\xEA d\u01B0\u1EDBi \u0111\xE2y. B\u1EA1n c\u0169ng c\xF3 th\u1EC3
+      t\u1EF1 l\xE0m quen v\u1EDBi Ch\xEDnh s\xE1ch quy\u1EC1n ri\xEAng t\u01B0 c\u1EE7a
+      t\u1EEBng \u0111\u1ED1i t\xE1c li\xEAn quan \u0111\u1EBFn nh\u01B0\u0303ng c\xF4ng
+      ngh\u1EC7 v\xE0 ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp th\xF4ng tin. Khi c\xE2\u0300n
+      thi\xEA\u0301t, b\u1EA5t k\u1EF3 m\u1EA1ng qu\u1EA3ng c\xE1o n\xE0o c\u0169ng
+      c\xF3 th\u1EC3 \u0111\u01B0\u01A1\u0323c t\u0103\u0301t \u0111i."
 --- !u!1 &48348063547578881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1995,7 @@ GameObject:
   - component: {fileID: 48348063547578880}
   - component: {fileID: 48348063547578882}
   - component: {fileID: 48348063547578883}
+  - component: {fileID: 7976062146418101788}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -1830,6 +2062,53 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SETTINGS
+--- !u!114 &7976062146418101788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348063547578881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Settings
+  - id: 30
+    text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+  - id: 1
+    text: "\u0627\u0644\u0625\u0639\u062F\u0627\u062F\u0627\u062A"
+  - id: 6
+    text: "\u8BBE\u7F6E"
+  - id: 14
+    text: "Param\xE8tres"
+  - id: 15
+    text: Einstellungen
+  - id: 20
+    text: Pengaturan
+  - id: 21
+    text: Impostazioni
+  - id: 23
+    text: "\uC124\uC815"
+  - id: 27
+    text: Ustawienia
+  - id: 28
+    text: "Configura\xE7\xF5es"
+  - id: 34
+    text: Configuraciones
+  - id: 35
+    text: "Inst\xE4llningar"
+  - id: 37
+    text: Ayarlar
+  - id: 39
+    text: "C\xE0i \u0111\u1EB7t"
 --- !u!1 &48348063612381031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,7 +2427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 2020
 --- !u!1 &48348063954614745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 48348063406638311}
-  message: {fileID: 48348063545478078}
   policyPrefab: {fileID: 0}
   OnConsent:
     m_PersistentCalls:
@@ -2467,6 +2745,7 @@ GameObject:
   - component: {fileID: 48348064096642490}
   - component: {fileID: 48348064096642491}
   - component: {fileID: 2604292345110519421}
+  - component: {fileID: 1340733465824374968}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2548,6 +2827,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &1340733465824374968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348064096642489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Refuse
+  - id: 30
+    text: "\u6211\u62D2\u7EDD"
+  - id: 1
+    text: "\u0623\u0631\u0641\u0636"
+  - id: 6
+    text: "\u6211\u62D2\u7EDD"
+  - id: 14
+    text: Refuse
+  - id: 15
+    text: Ablehnen
+  - id: 20
+    text: Menolak
+  - id: 21
+    text: Rifiuto
+  - id: 23
+    text: "\uB0B4\uAC00 \uAC70\uBD80"
+  - id: 27
+    text: Odmawiam
+  - id: 28
+    text: Recuso
+  - id: 34
+    text: Niego
+  - id: 35
+    text: "V\xE4grar"
+  - id: 37
+    text: Reddediyorum
+  - id: 39
+    text: "T\xF4i t\u1EEB ch\u1ED1i"
 --- !u!1 &48348064253602526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +3020,7 @@ GameObject:
   - component: {fileID: 48348064393590649}
   - component: {fileID: 48348064393590654}
   - component: {fileID: 7884812897886909868}
+  - component: {fileID: 2446399444663016602}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2759,7 +3086,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More options
+  m_Text: Settings
 --- !u!114 &7884812897886909868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +3102,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &2446399444663016602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348064393590652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Settings
+  - id: 30
+    text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+  - id: 1
+    text: "\u0627\u0644\u0625\u0639\u062F\u0627\u062F\u0627\u062A"
+  - id: 6
+    text: "\u8BBE\u7F6E"
+  - id: 14
+    text: "Param\xE8tres"
+  - id: 15
+    text: Einstellungen
+  - id: 20
+    text: Pengaturan
+  - id: 21
+    text: Impostazioni
+  - id: 23
+    text: "\uC124\uC815"
+  - id: 27
+    text: Ustawienia
+  - id: 28
+    text: "Configura\xE7\xF5es"
+  - id: 34
+    text: Configuraciones
+  - id: 35
+    text: "Inst\xE4llningar"
+  - id: 37
+    text: Ayarlar
+  - id: 39
+    text: "C\xE0i \u0111\u1EB7t"
 --- !u!1 &48348064511136822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,6 +3407,7 @@ GameObject:
   - component: {fileID: 48348064559115255}
   - component: {fileID: 48348064559115252}
   - component: {fileID: 5994041961459274447}
+  - component: {fileID: 198664962892896560}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3114,6 +3489,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &198664962892896560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348064559115258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Select all
+  - id: 30
+    text: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0432\u0441\u0435"
+  - id: 1
+    text: "\u0627\u062E\u062A\u064A\u0627\u0631 \u0627\u0644\u0643\u0644"
+  - id: 6
+    text: "\u9009\u62E9\u5168\u90E8"
+  - id: 14
+    text: Choisir tout
+  - id: 15
+    text: "Alles w\xE4hlen"
+  - id: 20
+    text: Pilih semua
+  - id: 21
+    text: Seleziona tutto
+  - id: 23
+    text: "\uBAA8\uB450 \uC120\uD0DD"
+  - id: 27
+    text: Zaznacz wszystko
+  - id: 28
+    text: Selecionar tudo
+  - id: 34
+    text: Seleccionar todo
+  - id: 35
+    text: "V\xE4lj alla"
+  - id: 37
+    text: "Hepsini se\xE7"
+  - id: 39
+    text: "Ch\u1ECDn t\u1EA5t c\u1EA3"
 --- !u!1 &48348064575431212
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,6 +3547,7 @@ GameObject:
   - component: {fileID: 48348064575431215}
   - component: {fileID: 48348064575431209}
   - component: {fileID: 48348064575431214}
+  - component: {fileID: 710054107087716237}
   m_Layer: 5
   m_Name: LogoText
   m_TagString: Untagged
@@ -3191,6 +3614,53 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: When were you born?
+--- !u!114 &710054107087716237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48348064575431212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: When were you born?
+  - id: 30
+    text: "\u0414\u0430\u0442\u0430 \u0432\u0430\u0448\u0435\u0433\u043E \u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F:"
+  - id: 1
+    text: "\u062A\u0627\u0631\u064A\u062E \u0645\u064A\u0644\u0627\u062F\u0643:"
+  - id: 6
+    text: "\u60A8\u7684\u751F\u65E5\uFF1A"
+  - id: 14
+    text: 'Votre date de naissance:'
+  - id: 15
+    text: 'Ihr Geburtsdatum:'
+  - id: 20
+    text: 'Tanggal lahir Anda:'
+  - id: 21
+    text: 'La tua data di nascita:'
+  - id: 23
+    text: "\uC0DD\uB144\uC6D4\uC77C"
+  - id: 27
+    text: 'Twoja data urodzenia:'
+  - id: 28
+    text: 'Data de nascimento:'
+  - id: 34
+    text: 'Fecha de tu nacimiento:'
+  - id: 35
+    text: "Ditt f\xF6delsedatum:"
+  - id: 37
+    text: "Do\u011Fum tarihiniz:"
+  - id: 39
+    text: "Ng\xE0y sinh c\u1EE7a b\u1EA1n:"
 --- !u!1 &48348064575477786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,6 +3929,7 @@ GameObject:
   - component: {fileID: 6378617394168751466}
   - component: {fileID: 6378617394168751468}
   - component: {fileID: 6378617394168751464}
+  - component: {fileID: 3068247069378693610}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -3524,7 +3995,54 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Are you ready to play? '
+  m_Text: Are you ready to play?
+--- !u!114 &3068247069378693610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378617394168751465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Are you ready to play?
+  - id: 30
+    text: "\u041F\u043E\u0438\u0433\u0440\u0430\u0435\u043C?"
+  - id: 1
+    text: "\u0647\u0644 \u062A\u0631\u064A\u062F \u0623\u0646 \u062A\u0644\u0639\u0628\u061F"
+  - id: 6
+    text: "\u6E38\u620F\u5417\uFF1F"
+  - id: 14
+    text: Jouons?
+  - id: 15
+    text: Spielen wir?
+  - id: 20
+    text: Ayo bermain?
+  - id: 21
+    text: Giochiamo?
+  - id: 23
+    text: "\uD50C\uB808\uC774\uD558\uC2DC\uC8E0?"
+  - id: 27
+    text: Zagramy?
+  - id: 28
+    text: Vamos jogar?
+  - id: 34
+    text: "\xBFEst\xE1s listo para jugar?"
+  - id: 35
+    text: Ska vi spela?
+  - id: 37
+    text: "Oynayal\u0131m m\u0131?"
+  - id: 39
+    text: "H\xE3y cu\u0300ng ch\u01A1i?"
 --- !u!1 &6378617394226191212
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +4166,6 @@ MonoBehaviour:
   logoObj: {fileID: 48348063152031518}
   privacyPolicyBtn: {fileID: 6378617395282631497}
   termsOfUseBtn: {fileID: 6378617395942446372}
-  consentText: {fileID: 6378617395662383893}
   acceptBtn: {fileID: 6378617395406947626}
   declineBtn: {fileID: 48348062614071350}
   mediationSettingsBtn: {fileID: 48348064038300478}
@@ -3668,6 +4185,7 @@ GameObject:
   - component: {fileID: 6378617394349402637}
   - component: {fileID: 6378617394349402629}
   - component: {fileID: 8622839448051645254}
+  - component: {fileID: 2276826980907756249}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3749,6 +4267,53 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.9567296, b: 0.7971698, a: 0.1882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &2276826980907756249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378617394349402634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: Accept
+  - id: 30
+    text: "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u044E"
+  - id: 1
+    text: "\u0645\u0648\u0627\u0641\u0642"
+  - id: 6
+    text: "\u63A5\u53D7"
+  - id: 14
+    text: J'accepte
+  - id: 15
+    text: Akzeptieren
+  - id: 20
+    text: Saya setuju
+  - id: 21
+    text: Accetto
+  - id: 23
+    text: "\uB3D9\uC758"
+  - id: 27
+    text: "Akceptuj\u0119"
+  - id: 28
+    text: Aceitar
+  - id: 34
+    text: Acepto
+  - id: 35
+    text: "Jag godk\xE4nner"
+  - id: 37
+    text: Kabul ediyorum
+  - id: 39
+    text: "Ch\u1EA5p nh\u1EADn"
 --- !u!1 &6378617394430952954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,6 +4713,7 @@ GameObject:
   - component: {fileID: 6378617395662383899}
   - component: {fileID: 6378617395662383901}
   - component: {fileID: 6378617395662383893}
+  - component: {fileID: 3973098910840975319}
   m_Layer: 5
   m_Name: ConsentMessage
   m_TagString: Untagged
@@ -4220,6 +4786,222 @@ MonoBehaviour:
     to improve the quality of our apps we collect and process your personal information.
     By pressing "Accept" you agree to these conditions. Visit our Privacy Policy to
     get more information about storage and usage of the received data.
+--- !u!114 &3973098910840975319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378617395662383898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e875758cbc3f492e82057c10704a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUIUpdate: 1
+  UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  text:
+  - id: 10
+    text: In-app purchase and advertising messages are the part of our mobile app.
+      Also there is an option to watch advertisements for a reward. In-app purchasing
+      refers to the buying of goods by using real money from your account. You can
+      disable or adjust the ability to make in-app purchases in your device settings.
+      In order to improve the quality of our apps we collect and process your personal
+      information. By pressing "Accept" you agree to these conditions. Visit our Privacy
+      Policy to get more information about storage and usage of the received data.
+  - id: 30
+    text: "\u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0435 \u043F\u043E\u043A\u0443\u043F\u043A\u0438,
+      \u043C\u0435\u0436\u0441\u0442\u0440\u0430\u043D\u0438\u0447\u043D\u0430\u044F
+      \u0440\u0435\u043A\u043B\u0430\u043C\u0430 \u0438 \u0440\u0435\u043A\u043B\u0430\u043C\u0430
+      \u0437\u0430 \u0432\u043E\u0437\u043D\u0430\u0433\u0440\u0430\u0436\u0434\u0435\u043D\u0438\u0435
+      -  \u044D\u0442\u043E \u0447\u0430\u0441\u0442\u044C \u043D\u0430\u0448\u0435\u0433\u043E
+      \u043C\u043E\u0431\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F.
+      \u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u044F\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0430
+      - \u044D\u0442\u043E \u043F\u043E\u043A\u0443\u043F\u043A\u0430 \u0442\u043E\u0432\u0430\u0440\u043E\u0432
+      \u0437\u0430 \u0440\u0435\u0430\u043B\u044C\u043D\u044B\u0435 \u0434\u0435\u043D\u044C\u0433\u0438,
+      \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u0437\u0438\u043C\u0430\u044E\u0442\u0441\u044F
+      \u0441 \u0432\u0430\u0448\u0435\u0439 \u0440\u0435\u0430\u043B\u044C\u043D\u043E\u0439
+      \u0431\u0430\u043D\u043A\u043E\u0432\u0441\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u044B.
+      \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C
+      \u0438\u043B\u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u043E\u043F\u0446\u0438\u0438
+      \u0432\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0445 \u043F\u043E\u043A\u0443\u043F\u043E\u043A
+      \u0432 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430\u0445 \u0432\u0430\u0448\u0435\u0433\u043E
+      \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430. \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
+      \u0441\u043E\u0431\u0438\u0440\u0430\u0435\u0442 \u0438 \u043E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442
+      \u0432\u0430\u0448\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u0443\u044E
+      \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u0434\u043B\u044F
+      \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430
+      \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F. \u041D\u0430\u0436\u0438\u043C\u0430\u044F
+      \u043A\u043D\u043E\u043F\u043A\u0443 \u041F\u0440\u0438\u043D\u0438\u043C\u0430\u044E,
+      \u0412\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C
+      \u043D\u0430 \u044D\u0442\u0438 \u0443\u0441\u043B\u043E\u0432\u0438\u044F.
+      \u041E\u0437\u043D\u0430\u043A\u043E\u043C\u044C\u0442\u0435\u0441\u044C \u0441
+      \u043D\u0430\u0448\u0435\u0439 \u041F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439
+      \u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438,
+      \u0447\u0442\u043E\u0431\u044B \u0443\u0437\u043D\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435
+      \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E \u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438
+      \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0438
+      \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u043D\u044B\u0445 \u043D\u0430\u043C\u0438
+      \u0434\u0430\u043D\u043D\u044B\u0445."
+  - id: 1
+    text: "\u062A\u0639\u062F\u0651 \u0639\u0645\u0644\u064A\u0627\u062A \u0627\u0644\u0634\u0631\u0627\u0621
+      \u062F\u0627\u062E\u0644 \u0627\u0644\u062A\u0637\u0628\u064A\u0642 \u0648\u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0628\u064A\u0646\u064A\u0629 \u0648\u0625\u0639\u0644\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0645\u0643\u0627\u0641\u0622\u062A \u062C\u0632\u0621\u0627\u064B
+      \u0645\u0646 \u062A\u0637\u0628\u064A\u0642\u0646\u0627 \u0644\u0644\u0647\u0648\u0627\u062A\u0641
+      \u0627\u0644\u0645\u062D\u0645\u0648\u0644\u0629. \u064A\u0642\u0635\u062F \u0628\u0639\u0645\u0644\u064A\u0629
+      \u0627\u0644\u0634\u0631\u0627\u0621 \u062F\u0627\u062E\u0644 \u0627\u0644\u062A\u0637\u0628\u064A\u0642
+      \u0639\u0645\u0644\u064A\u0629 \u0634\u0631\u0627\u0621 \u0633\u0644\u0639 \u0628\u0623\u0645\u0648\u0627\u0644
+      \u062D\u0642\u064A\u0642\u064A\u0629 \u064A\u062A\u0645 \u0633\u062D\u0628\u0647\u0627
+      \u0645\u0646 \u0628\u0637\u0627\u0642\u062A\u0643 \u0627\u0644\u0645\u0635\u0631\u0641\u064A\u0629
+      \u0627\u0644\u062D\u0642\u064A\u0642\u064A\u0629. \u064A\u0645\u0643\u0646\u0643
+      \u0625\u0644\u063A\u0627\u0621 \u0623\u0648 \u062A\u0639\u062F\u064A\u0644 \u062E\u064A\u0627\u0631\u0627\u062A
+      \u0639\u0645\u0644\u064A\u0627\u062A \u0627\u0644\u0634\u0631\u0627\u0621 \u062F\u0627\u062E\u0644
+      \u0627\u0644\u062A\u0637\u0628\u064A\u0642 \u0639\u0646 \u0637\u0631\u064A\u0642
+      \u0636\u0628\u0637 \u0627\u0644\u0625\u0639\u062F\u0627\u062F\u0627\u062A \u0641\u064A
+      \u062C\u0647\u0627\u0632\u0643. \u064A\u0642\u0648\u0645 \u0627\u0644\u062A\u0637\u0628\u064A\u0642
+      \u0628\u062C\u0645\u0639 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0634\u062E\u0635\u064A\u0629
+      \u0648\u0645\u0639\u0627\u0644\u062C\u062A\u0647\u0627 \u0644\u063A\u0631\u0636
+      \u062A\u062D\u0633\u064A\u0646 \u0639\u0645\u0644 \u0627\u0644\u062A\u0637\u0628\u064A\u0642.
+      \u0645\u0646 \u062E\u0644\u0627\u0644 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649
+      \"\u0645\u0648\u0627\u0641\u0642\"\u060C \u0641\u0625\u0646\u0643 \u062A\u0648\u0627\u0641\u0642
+      \u0639\u0644\u0649 \u062A\u0644\u0643 \u0627\u0644\u0634\u0631\u0648\u0637.
+      \u0644\u0645\u0632\u064A\u062F \u0645\u0646 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062A
+      \u062D\u0648\u0644 \u062A\u062E\u0632\u064A\u0646 \u0648\u0627\u0633\u062A\u062E\u062F\u0627\u0645
+      \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u062A\u064A \u0646\u062A\u0644\u0642\u0627\u0647\u0627
+      \u064A\u0631\u062C\u0649 \u0642\u0631\u0627\u0621\u0629 \u0633\u064A\u0627\u0633\u0629
+      \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629."
+  - id: 14
+    text: "Les achats internes, les publicit\xE9s interstitielles et les annonces
+      pour r\xE9compense font partie de notre application mobile. Un achat interne
+      est un achat de biens pour l'argent r\xE9el, qui est d\xE9bit\xE9 de votre carte
+      bancaire r\xE9elle. Vous pouvez annuler ou ajuster les options d'achats internes
+      dans les param\xE8tres de votre appareil. L'application recueille et traite
+      vos informations personnelles pour am\xE9liorer la qualit\xE9 de l'application.
+      En cliquant sur \xABJ'accepte\xBB, vous acceptez ces conditions. Veuillez lire
+      notre Politique de Confidentialit\xE9 pour plus d'informations sur le stockage
+      et l'utilisation des donn\xE9es que nous recevons."
+  - id: 6
+    text: "\u5185\u90E8\u8D2D\u4E70\u3001 \u9875\u9762\u95F4\u5E7F\u544A\u548C\u5956\u52B1\u5E7F\u544A\u90FD\u662F\u6211\u4EEC\u624B\u673A\u5E94\u7528\u7A0B\u5E8F\u7684\u4E00\u90E8\u5206\u3002
+      \u5185\u90E8\u8D2D\u4E70\u5C31\u662F\u7528\u771F\u5B9E\u7684\u94B1\u8D2D\u4E70\u5546\u54C1\uFF0C
+      \u901A\u8FC7\u60A8\u7684\u5B9E\u9645\u7684\u94F6\u884C\u5361\u6536\u8D39\u7684\u3002
+      \u60A8\u53EF\u4EE5\u5728\u8BBE\u5907\u8BBE\u7F6E\u4E2D\u53D6\u6D88\u6216\u8BBE\u7F6E\u5185\u90E8\u8D2D\u4E70\u9009\u9879\u3002
+      \u5E94\u7528\u7A0B\u5E8F\u6536\u96C6\u548C\u5904\u7406\u60A8\u7684\u4E2A\u4EBA\u4FE1\u606F\u4EE5\u63D0\u9AD8\u5E94\u7528\u7A0B\u5E8F\u7684\u8D28\u91CF\u3002
+      \u70B9\u51FB\u63A5\u53D7\u6309\u952E\uFF0C \u540C\u610F\u8BE5\u6761\u6B3E\u3002
+      \u8BF7\u77E5\u6089\u6211\u4EEC\u7684\u9690\u79C1\u653F\u7B56\uFF0C \u4E86\u89E3\u66F4\u591A\u5173\u4E8E\u6211\u4EEC\u6536\u96C6\u6570\u636E\u7684\u5B58\u50A8\u548C\u4F7F\u7528\u3002"
+  - id: 15
+    text: "Innere Eink\xE4ufe, seiten\xFCbergreifende Werbung und Werbung gegen Verg\xFCtung
+      ist ein Teil unserer mobilen Anwendung. Der innere Einkauf ist der Wareneinkauf
+      f\xFCr reelles Geld, das von Ihrer reellen Bankkarte eingezogen wird. Sie k\xF6nnen
+      die Optionen der inneren Eink\xE4ufe in den Einstellungen Ihres Ger\xE4tes zur\xFCcksetzen
+      oder konfigurieren. Die Anwendung sammelt und bearbeitet Ihre personengebundene
+      Information f\xFCr die Qualit\xE4tsverbesserung der Anwendung. Die Taste Akzeptieren
+      dr\xFCckend, stimmen Sie diesen Bedingungen zu. Nehmen Sie den Einblick in unsere
+      Vertraulichkeitspolitik, um mehr Informationen \xFCber die Speicherung und Benutzung
+      der von uns erhaltenen Daten zu erfahren."
+  - id: 20
+    text: Pembelian di-rumah, iklan pengantara, dan iklan penghargaan adalah bagian
+      dari aplikasi seluler kami. Pembelian di-rumah adalah pembelian barang dengan
+      uang sungguhan, yang dibebankan dari kartu bank Anda yang sesungguhnya. Anda
+      dapat membatalkan atau menyesuaikan opsi untuk pembelian di-rumah dalam pengaturan
+      perangkat Anda. Aplikasi mengumpulkan dan memproses informasi pribadi Anda untuk
+      meningkatkan kualitas aplikasi. Dengan mengklik tombol Setuju, Anda menyetujui
+      persyaratan ini. Harap membaca Kebijakan Privasi kami bagi informasi lebih lanjut
+      tentang penyimpanan dan penggunaan data yang kami terima.
+  - id: 21
+    text: "Acquisti interni, pubblicit\xE0 interpagina e pubblicit\xE0 per il compenso
+      fanno parte della nostra applicazione mobile. Un acquisto interno \xE8 un acquisto
+      dei beni con denaro reale, che viene addebitato sulla tua carta bancaria reale.
+      Puoi annullare o impostare le opzioni per gli acquisti interni nelle impostazioni
+      del tuo dispositivo. L'app raccoglie ed elabora le tue informazioni personali
+      per migliorare la qualit\xE0 dell'app. Premendo il pulsante Accetto, accetti
+      questi condizioni. Prendi conoscenza della nostra Informativa sulla privacy
+      per ulteriori informazioni sulla conservazione e utilizzo dei dati che riceviamo. "
+  - id: 23
+    text: "\uC778\uC571 \uAD6C\uB9E4, \uC804\uBA74 \uAD11\uACE0 \uBC0F \uBCF4\uC0C1
+      \uAD11\uACE0\uB294 \uBAA8\uBC14\uC77C \uC571\uC758 \uC77C\uBD80\uC785\uB2C8\uB2E4.
+      \uC778\uC571 \uAD6C\uB9E4\uB294 \uC2E4\uC81C \uC740\uD589 \uCE74\uB4DC\uC5D0\uC11C
+      \uC778\uCD9C\uD560 \uC2E4\uC81C \uB3C8\uC73C\uB85C \uC0C1\uD488\uC744 \uAD6C\uB9E4\uD558\uB294
+      \uAC83\uC785\uB2C8\uB2E4. \uC7A5\uCE58 \uC124\uC815\uC5D0\uC11C \uC778\uC571
+      \uAD6C\uB9E4 \uC635\uC158\uC744 \uCDE8\uC18C\uD558\uAC70\uB098 \uC870\uC815\uD560
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uC571\uC740 \uC571\uC758 \uD488\uC9C8\uC744
+      \uAC1C\uC120\uD558\uAE30 \uC704\uD574 \uACE0\uAC1D\uC758 \uAC1C\uC778 \uC815\uBCF4\uB97C
+      \uC218\uC9D1\uD558\uACE0 \uCC98\uB9AC\uD569\uB2C8\uB2E4. \xAB\uB3D9\uC758\xBB
+      \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uBCF8 \uC57D\uAD00\uC5D0 \uB3D9\uC758\uD558\uB294
+      \uAC83\uC785\uB2C8\uB2E4. \uB2F9\uC0AC\uAC00 \uC218\uC2E0 \uD55C \uC815\uBCF4
+      \uC800\uC7A5 \uBC0F \uC0AC\uC6A9\uC5D0 \uB300\uD55C \uC790\uC138\uD55C \uB0B4\uC6A9\uC740
+      \uAC1C\uC778 \uC815\uBCF4 \uBCF4\uD638 \uC815\uCC45\uC744 \uCC38\uC870\uD558\uC2ED\uC2DC\uC624."
+  - id: 27
+    text: "Zakupy w aplikacji, reklamy pe\u0142noekranowe oraz reklamy za nagrody
+      s\u0105 cz\u0119\u015Bci\u0105 naszej aplikacji mobilnej. Zakup w aplikacji
+      - to zakup towar\xF3w za prawdziwe pieni\u0105dze, kt\xF3re s\u0105 pobierane
+      z Twojej realnej karty bankowej. Mo\u017Cesz skasowa\u0107 lub dostosowa\u0107
+      opcje zakup\xF3w w aplikacji w ustawieniach Twojego urz\u0105dzenia. Aplikacja
+      zbiera i przetwarza Twoje dane osobowe w celu poprawy jako\u015Bci aplikacji.
+      Klikaj\u0105c przycisk \"Akceptuj\u0119\", zgadzasz si\u0119 na niniejsze warunki.
+      Zapoznaj si\u0119 z nasz\u0105 Polityk\u0105 Prywatno\u015Bci, aby uzyska\u0107
+      wi\u0119cej informacji na temat przechowywania i wykorzystywania otrzymywanych
+      przez nas danych."
+  - id: 28
+    text: "As compras internas, a publicidade entre p\xE1ginas (intersticial) e a
+      publicidade paga s\xE3o os componentes da nossa aplica\xE7\xE3o m\xF3vel. Uma
+      compra interna \xE9 uma compra de uma mercadoria com dinheiro real diretamente
+      debitado do seu cart\xE3o banc\xE1rio. As op\xE7\xF5es de compras internas podem
+      ser desativadas ou configuradas nas defini\xE7\xF5es do seu dispositivo. A fim
+      de melhorar a qualidade dos servi\xE7os restados a aplica\xE7\xE3o recolha e
+      processa seus dados pessoais. Clicando em Aceitar voc\xEA concorda com os referidos
+      termos. Para saber mais sobre armazenamento e uso dos dados recolhidos leia
+      a nossa Pol\xEDtica de Confidencialidade."
+  - id: 34
+    text: "Compras internas, anuncios intersticiales y anuncios por recompensa son
+      una parte de nuestra aplicaci\xF3n m\xF3vil. Compra interna es una compra de
+      mercanc\xEDas con el dinero real que se deduce desde tu tarjeta bancaria real.
+      Puedes cancelar o configurar las opciones de compras internas en las configuraciones
+      de tu dispositivo. La aplicaci\xF3n recopila y procesa tu informaci\xF3n personal
+      para mejorar la calidad de la aplicaci\xF3n. Haciendo clic en el bot\xF3n Acepto,
+      t\xFA aceptas estas condiciones. Lee nuestra Pol\xEDtica de privacidad para
+      obtener m\xE1s informaci\xF3n sobre el almacenamiento y el uso de los datos
+      que recibimos."
+  - id: 35
+    text: "Interne k\xF6p, mellansidesannonser och annonser f\xF6r bel\xF6ning \xE4r
+      en del av v\xE5r mobilapp. Ett internt k\xF6p \xE4r ett k\xF6p av varor med
+      riktiga pengar som debiteras fr\xE5n ditt riktiga bankkort. Du kan avbryta eller
+      justera alternativen f\xF6r interna ink\xF6p i enhetens inst\xE4llningar. Appen
+      samlar in och bearbetar din personliga information f\xF6r att f\xF6rb\xE4ttra
+      kvaliteten p\xE5 tj\xE4nsterna. Genom att klicka p\xE5 knappen \u201DJag godk\xE4nner\u201D
+      godk\xE4nner du dessa villkor. L\xE4s v\xE5r sekretesspolicy f\xF6r mer information
+      om lagring och anv\xE4ndning av de uppgifter vi f\xE5r."
+  - id: 37
+    text: "\u0130\xE7 al\u0131\u015Fveri\u015Fler, ge\xE7i\u015F reklamlar\u0131 ve
+      \xF6d\xFCl reklamlar\u0131 mobil uygulamam\u0131z\u0131n bir par\xE7as\u0131d\u0131r.
+      \u0130\xE7 al\u0131\u015Fveri\u015F, ger\xE7ek banka kart\u0131n\u0131zdan tahsil
+      edilen ger\xE7ek parayla bir \xFCr\xFCn\xFC sat\u0131n alma i\u015Flemidir.
+      Cihaz\u0131n\u0131z\u0131n ayarlar\u0131ndan dahili sat\u0131n alma se\xE7eneklerini
+      iptal edebilir veya ayarlayabilirsiniz. Uygulama, kendi kalitesini art\u0131rmak
+      i\xE7in ki\u015Fisel bilgilerinizi toplar ve i\u015Fler. Kabul Ediyorum\u2019u
+      t\u0131klayarak bu \u015Fartlar\u0131 kabul etmi\u015F oluyorsunuz. Ald\u0131\u011F\u0131m\u0131z
+      verilerin saklanmas\u0131 ve kullan\u0131m\u0131 hakk\u0131nda daha fazla bilgi
+      i\xE7in l\xFCtfen Gizlilik Politikam\u0131z\u0131 okuyun."
+  - id: 39
+    text: "Mua h\xE0ng n\xF4\u0323i b\xF4\u0323, qu\u1EA3ng c\xE1o xen k\u1EBD v\xE0
+      qu\u1EA3ng c\xE1o t\u1EB7ng th\u01B0\u1EDFng l\xE0 m\u1ED9t ph\u1EA7n c\u1EE7a
+      \u1EE9ng d\u1EE5ng d\xE0nh cho ca\u0301c thi\u1EBFt b\u1ECB di \u0111\u1ED9ng
+      c\u1EE7a ch\xFAng t\xF4i. Mua h\xE0ng n\u1ED9i b\u1ED9 l\xE0 giao d\u1ECBch
+      mua h\xE0ng h\xF3a b\u1EB1ng ti\u1EC1n th\u1EADt, \u0111\u01B0\u1EE3c thanh
+      toa\u0301n t\u1EEB th\u1EBB ng\xE2n h\xE0ng th\u1EF1c c\u1EE7a b\u1EA1n. B\u1EA1n
+      c\xF3 th\u1EC3 h\u1EE7y ho\u1EB7c \u0111i\u1EC1u ch\u1EC9nh c\xE1c t\xF9y ch\u1ECDn
+      mua h\xE0ng n\u1ED9i b\u1ED9 trong ph\u1EA7n c\xE0i \u0111\u1EB7t thi\u1EBFt
+      b\u1ECB c\u1EE7a Ba\u0323n. \u1EE8ng d\u1EE5ng thu th\u1EADp v\xE0 x\u1EED l\xFD
+      ca\u0301c th\xF4ng tin c\xE1 nh\xE2n c\u1EE7a B\u1EA1n \u0111\u1EC3 c\u1EA3i
+      thi\u1EC7n ch\u1EA5t l\u01B0\u1EE3ng c\u1EE7a \u1EE9ng d\u1EE5ng. B\u1EB1ng
+      c\xE1ch nh\u1EA5p v\xE0o n\xFAt \u0110\u1ED3ng \xFD, B\u1EA1n \u0111\u1ED3ng
+      \xFD v\u1EDBi c\xE1c \u0111i\u1EC1u kho\u1EA3n n\xE0y. Xin vui l\xF2ng la\u0300m
+      quen v\u01A1\u0301i Ch\xEDnh s\xE1ch quy\u1EC1n ri\xEAng t\u01B0 c\u1EE7a ch\xFAng
+      t\xF4i \u0111\u1EC3 bi\u1EBFt th\xEAm th\xF4ng tin v\u1EC1 vi\u1EC7c l\u01B0u
+      tr\u1EEF v\xE0 s\u1EED d\u1EE5ng nh\u01B0\u0303ng d\u1EEF li\u1EC7u ma\u0300
+      ch\xFAng t\xF4i nh\u1EADn \u0111\u01B0\u1EE3c."
 --- !u!1 &6378617395942446378
 GameObject:
   m_ObjectHideFlags: 0

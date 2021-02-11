@@ -14,8 +14,6 @@ namespace CAS.UserConsent
         [Header( "Components" )]
         [SerializeField]
         private Transform container;
-        [SerializeField]
-        private Text message;
 
         [Header( "Optional" )]
         public MediationPolicyUI policyPrefab;
@@ -69,12 +67,6 @@ namespace CAS.UserConsent
                 }
             }
             initialized = true;
-        }
-
-        public void SetMessage( string text )
-        {
-            if (message && !string.IsNullOrEmpty( text ))
-                message.text = text;
         }
 
         public void ApplyMediationConsent()
