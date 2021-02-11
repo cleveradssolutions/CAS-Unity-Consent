@@ -1,5 +1,11 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.1.4] - 2021-02-11
+### Features
+- Remove int parse from string in Audience Definition logic.
+### Bug Fixes
+- Wrong select year and calculate audience.
+
 ## [1.1.3] - 2021-02-10
 ### Bug Fixes
 - Ability to drag the UserConsentUI prefab to field of consent request parameters. 
