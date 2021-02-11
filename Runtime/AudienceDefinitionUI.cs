@@ -14,7 +14,7 @@ namespace CAS.UserConsent
         [SerializeField]
         private float animationTime = 0.15f;
         [SerializeField]
-        private float userInitialAge = 12;
+        private int userInitialAge = 12;
 
         [SerializeField]
         private List<Text> components = new List<Text>();
@@ -47,8 +47,10 @@ namespace CAS.UserConsent
             for (int i = 0; i < components.Count; i++)
             {
                 textPositions[i] = components[i].transform.position;
-                components[i].text = ( currentYear - userInitialAge - i ).ToString();
+                components[i].text = ( currentYear - userInitialAge + 2 - i ).ToString();
             }
+
+            selectedYear = currentYear - userInitialAge;
 
             SetTextColors();
         }
@@ -91,11 +93,11 @@ namespace CAS.UserConsent
             for (int i = 1; i < components.Count; i++)
                 StartCoroutine( MoveTexts( components[i].transform, textPositions[i - 1] ) );
 
-            selectedYear = ParseDate( components[components.Count - 1].text ) - 1;
-
+            selectedYear--;
+            var nextYear = selectedYear - 2;
             Text text = components[0];
             text.transform.position = textPositions[textPositions.Length - 1];
-            text.text = selectedYear.ToString();
+            text.text = nextYear.ToString();
             components.Remove( text );
             components.Add( text );
 
@@ -111,14 +113,15 @@ namespace CAS.UserConsent
             for (int i = 0; i < components.Count - 1; i++)
                 StartCoroutine( MoveTexts( components[i].transform, textPositions[i + 1] ) );
 
-            selectedYear = ParseDate( components[0].text ) + 1;
+            selectedYear++;
+            var nextYear = selectedYear + 2;
 
             Text text = components[components.Count - 1];
             text.transform.position = textPositions[0];
-            if (selectedYear > currentYear)
+            if (nextYear > currentYear)
                 text.text = "";
             else
-                text.text = selectedYear.ToString();
+                text.text = nextYear.ToString();
 
             components.Remove( text );
             components.Insert( 0, text );
@@ -137,13 +140,6 @@ namespace CAS.UserConsent
                 else
                     components[i].color = defaultYearColor;
             }
-        }
-
-        private int ParseDate( string date )
-        {
-            int parse = 2000;
-            int.TryParse( date, out parse );
-            return parse;
         }
 
         private IEnumerator MoveTexts( Transform moveText, Vector3 pos )
