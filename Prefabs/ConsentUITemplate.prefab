@@ -136,7 +136,7 @@ MonoBehaviour:
   - id: 34
     text: Acepto
   - id: 35
-    text: "Jag godk\xE4nner"
+    text: "Jag\_godk\xE4nner"
   - id: 37
     text: Kabul ediyorum
   - id: 39
@@ -733,7 +733,7 @@ MonoBehaviour:
   - id: 34
     text: Cancelalo todo
   - id: 35
-    text: Avbryt alla
+    text: Avbryt allt
   - id: 37
     text: Hepsini iptal et
   - id: 39
@@ -1058,7 +1058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &48348063199003343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1962,11 +1962,10 @@ MonoBehaviour:
       socio con respecto a las tecnolog\xEDas y m\xE9todos de recopilaci\xF3n de la
       informaci\xF3n. En un caso necesario, es posible desactivar cualquier red publicitaria."
   - id: 35
-    text: "Genom att klicka p\xE5 knappen \u201DJag godk\xE4nner\u201D godk\xE4nner
-      du att tredjepartnerna som anges nedan anv\xE4nder din personliga information.
-      Du kan ocks\xE5 bekanta dig med varje partners sekretesspolicy ang\xE5ende teknik
-      och metoder f\xF6r att samla in information. Alla annonsn\xE4tverk kan inaktiveras
-      vid behov."
+    text: "Genom att klicka p\xE5 knappen \"Jag\_godk\xE4nner\" accepterar du att
+      tredjepartspartnerna som anges nedan anv\xE4nder dina personuppgifter. Du kan
+      l\xE4sa mer om varje partners sekretesspolicy ang\xE5ende teknik och metoder
+      f\xF6r insamling av information. Alla annonsn\xE4tverk kan inaktiveras vid behov."
   - id: 37
     text: "Kabul Ediyorum'u t\u0131klayarak ki\u015Fisel bilgilerinizin a\u015Fa\u011F\u0131da
       listelenen \xFC\xE7\xFCnc\xFC taraf ortaklar\u0131n kullanmalar\u0131na izin
@@ -2847,7 +2846,7 @@ MonoBehaviour:
   - id: 10
     text: Refuse
   - id: 30
-    text: "\u6211\u62D2\u7EDD"
+    text: "\u041E\u0442\u043A\u0430\u0437\u044B\u0432\u0430\u044E\u0441\u044C"
   - id: 1
     text: "\u0623\u0631\u0641\u0636"
   - id: 6
@@ -4038,7 +4037,7 @@ MonoBehaviour:
   - id: 34
     text: "\xBFEst\xE1s listo para jugar?"
   - id: 35
-    text: Ska vi spela?
+    text: "L\xE5t oss spela?"
   - id: 37
     text: "Oynayal\u0131m m\u0131?"
   - id: 39
@@ -4309,7 +4308,7 @@ MonoBehaviour:
   - id: 34
     text: Acepto
   - id: 35
-    text: "Jag godk\xE4nner"
+    text: "Jag\_godk\xE4nner"
   - id: 37
     text: Kabul ediyorum
   - id: 39
@@ -4965,14 +4964,14 @@ MonoBehaviour:
       obtener m\xE1s informaci\xF3n sobre el almacenamiento y el uso de los datos
       que recibimos."
   - id: 35
-    text: "Interne k\xF6p, mellansidesannonser och annonser f\xF6r bel\xF6ning \xE4r
-      en del av v\xE5r mobilapp. Ett internt k\xF6p \xE4r ett k\xF6p av varor med
-      riktiga pengar som debiteras fr\xE5n ditt riktiga bankkort. Du kan avbryta eller
-      justera alternativen f\xF6r interna ink\xF6p i enhetens inst\xE4llningar. Appen
-      samlar in och bearbetar din personliga information f\xF6r att f\xF6rb\xE4ttra
-      kvaliteten p\xE5 tj\xE4nsterna. Genom att klicka p\xE5 knappen \u201DJag godk\xE4nner\u201D
-      godk\xE4nner du dessa villkor. L\xE4s v\xE5r sekretesspolicy f\xF6r mer information
-      om lagring och anv\xE4ndning av de uppgifter vi f\xE5r."
+    text: "K\xF6p i appar, mellansidesannonser och bel\xF6ningsannonser \xE4r en del
+      av v\xE5r mobilapp. Ett k\xF6p i en app \xE4r ett k\xF6p av varor med riktiga
+      pengar som debiteras fr\xE5n ditt riktiga bankkort. Du kan avbryta eller justera
+      alternativen f\xF6r interna ink\xF6p i enhetens inst\xE4llningar. Appen samlar
+      in och behandlar dina personuppgifter f\xF6r att f\xF6rb\xE4ttra appens kvalitet.
+      Genom att klicka p\xE5 knappen \"Jag\_godk\xE4nner\" accepterar\_du dessa villkor.
+      L\xE4s v\xE5r sekretesspolicy f\xF6r mer information om lagring och anv\xE4ndning
+      av de uppgifter vi f\xE5r."
   - id: 37
     text: "\u0130\xE7 al\u0131\u015Fveri\u015Fler, ge\xE7i\u015F reklamlar\u0131 ve
       \xF6d\xFCl reklamlar\u0131 mobil uygulamam\u0131z\u0131n bir par\xE7as\u0131d\u0131r.

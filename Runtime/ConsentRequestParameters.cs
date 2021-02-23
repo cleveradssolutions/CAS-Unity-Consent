@@ -13,6 +13,7 @@ namespace CAS.UserConsent
 
         public Action OnConsent;
 
+#pragma warning disable 649 // is never assigned to, and will always have its default value null
         [SerializeField]
         internal bool showInEditor = true;
         [SerializeField]
@@ -34,6 +35,7 @@ namespace CAS.UserConsent
         private TypedText[] privacyPolicyUrl;
         [SerializeField]
         private TypedText[] termsOfUseUrl;
+#pragma warning restore 649
 
         internal int resetStatus = 0;
         #endregion

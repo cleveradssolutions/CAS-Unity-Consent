@@ -44,13 +44,12 @@ namespace CAS.UserConsent
             }
             currentYear = DateTime.Now.Year;
             textPositions = new Vector2[components.Count];
+            selectedYear = currentYear - userInitialAge;
             for (int i = 0; i < components.Count; i++)
             {
                 textPositions[i] = components[i].transform.position;
-                components[i].text = ( currentYear - userInitialAge + 2 - i ).ToString();
+                components[i].text = ( selectedYear + 2 - i ).ToString();
             }
-
-            selectedYear = currentYear - userInitialAge;
 
             SetTextColors();
         }
