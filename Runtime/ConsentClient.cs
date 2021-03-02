@@ -39,9 +39,18 @@ namespace CAS.UserConsent
         internal static Audience SetYearOfBirth( int year )
         {
             PlayerPrefs.SetInt( yearOfBirthPref, year );
-            var result = GetAudience( year );
-            MobileAds.settings.taggedAudience = result;
-            return result;
+            if (year < 0)
+                MobileAds.settings.taggedAudience = Audience.Mixed;
+            else
+            {
+                var age = DateTime.Now.Year - year;
+                if (age < 12)
+                    MobileAds.settings.taggedAudience = Audience.Children;
+                else
+                    MobileAds.settings.taggedAudience = Audience.NotChildren;
+                MobileAds.targetingOptions.age = age;
+            }
+            return MobileAds.settings.taggedAudience;
         }
 
         internal static Audience GetAudience( int year )
@@ -86,9 +95,13 @@ namespace CAS.UserConsent
             Audience savedAudience = Audience.Mixed;
             if (parameters.withAudienceDefinition && parameters.resetStatus < 2)
             {
-                savedAudience = GetAudience( GetYearOfBirth() );
+                int selectedYear = GetYearOfBirth();
+                savedAudience = GetAudience( selectedYear );
                 if (savedAudience != Audience.Mixed)
                     MobileAds.settings.taggedAudience = savedAudience;
+
+                if (selectedYear > 0)
+                    MobileAds.targetingOptions.age = DateTime.Now.Year - selectedYear;
             }
 
             if (parameters.resetStatus == 0 || savedAudience == Audience.Children)

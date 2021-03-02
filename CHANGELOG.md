@@ -1,5 +1,15 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.2.0] - 2021-03-02
+### Dependencies
+- CleverAdsSolutions - [2.0.0](https://github.com/cleveradssolutions/CAS-Unity/releases)
+### Features
+- Added text localization in 15 languages.
+- Added iOS [App Tracking Transparency request](https://developer.apple.com/documentation/apptrackingtransparency) in separated script `CASUAppTracking.m`.
+- Sets `MobileAds.targetingOptions.age` on select user year of birth.
+### Changes
+- Deprecate `MobileAds.BuildManager().WithUserConsent()` no longer needs to be called.
+
 ## [1.1.4] - 2021-02-11
 ### Features
 - Remove int parse from string in Audience Definition logic.

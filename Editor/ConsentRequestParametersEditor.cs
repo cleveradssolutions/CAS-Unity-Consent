@@ -20,6 +20,9 @@ namespace CAS.UserConsent
         private const string templateSettingsPrefabName = "NetworkPolicy.prefab";
         private const string customUIPrefabName = "UserConsentUI.prefab";
         private const string customSettingsPrefabName = "SettingToggleUI.prefab";
+        private const string configuringPrivacyURL = Utils.gitRootURL + "CAS-Unity#include-ios";
+        private const string locationUsageDefaultDescription = "Your data will be used to provide you a better and personalized ad experience.";
+
 
         private SerializedProperty showInEditorProp;
         private SerializedProperty withAudienceDefinitionProp;
@@ -30,6 +33,7 @@ namespace CAS.UserConsent
         private SerializedProperty settingsTogglePrefabProp;
         private SerializedProperty privacyPolicyUrlProp;
         private SerializedProperty termsOfUseUrlProp;
+        private SerializedProperty trackingUsageDescriptionProp;
 
         private ReorderableList privacyPolicyList;
         private ReorderableList termsOfUseList;
@@ -38,7 +42,6 @@ namespace CAS.UserConsent
 
         private string newCASVersion = null;
         private bool allowedPackageUpdate = false;
-        private bool trackingDescriptionExist = false;
 
         private void OnEnable()
         {
@@ -52,6 +55,7 @@ namespace CAS.UserConsent
             settingsTogglePrefabProp = props.FindProperty( "settingsTogglePrefab" );
             privacyPolicyUrlProp = props.FindProperty( "privacyPolicyUrl" );
             termsOfUseUrlProp = props.FindProperty( "termsOfUseUrl" );
+            trackingUsageDescriptionProp = props.FindProperty( "trackingUsageDescription" );
 
             privacyPolicyList = new ReorderableList( props, privacyPolicyUrlProp, true, true, true, true )
             {
@@ -71,10 +75,6 @@ namespace CAS.UserConsent
 
             EditorApplication.delayCall +=
                 () => newCASVersion = Utils.GetNewVersionOrNull( gitRepoName, UserConsent.version, false );
-
-
-            var iosSettings = Utils.GetSettingsAsset( BuildTarget.iOS, false );
-            trackingDescriptionExist = iosSettings && !string.IsNullOrEmpty( iosSettings.defaultIOSTrakingUsageDescription );
         }
 
         public override void OnInspectorGUI()
@@ -85,22 +85,6 @@ namespace CAS.UserConsent
             Utils.LinksToolbarGUI( gitRepoName );
 
             EditorGUILayout.PropertyField( withAudienceDefinitionProp );
-
-            EditorGUILayout.PropertyField( withRequestTrackingTransparencyProp );
-            EditorGUI.indentLevel++;
-            EditorGUILayout.HelpBox( "iOS App Tracking Transparency Request", MessageType.None );
-            EditorGUI.indentLevel--;
-            if (!trackingDescriptionExist && withRequestTrackingTransparencyProp.boolValue)
-            {
-                withRequestTrackingTransparencyProp.boolValue = false;
-                if (EditorUtility.DisplayDialog( "App Tracking Transparency request",
-                    "Please set NSUserTrackingUsageDescription in 'Assets > CleverAdsSolutions > iOS Settings' menu to correct tracking authorization request.",
-                    "Open iOS settings", "Disable request" ))
-                {
-                    Utils.OpenIOSSettingsWindow();
-                }
-            }
-
             EditorGUILayout.PropertyField( withDeclineOptionProp );
             EditorGUILayout.PropertyField( showInEditorProp );
             EditorGUILayout.Space();
@@ -118,17 +102,43 @@ namespace CAS.UserConsent
                 uiPrefabProp, templateUIPrefabName, customUIPrefabName,
                 typeof( UserConsentUI ) );
 
-            CAS.UEditor.HelpStyles.BeginBoxScope();
-            EditorGUILayout.PropertyField( withMediationSettingsProp );
-            bool disableTogglePrefab = !withMediationSettingsProp.boolValue;
-            EditorGUI.BeginDisabledGroup( disableTogglePrefab );
+            HelpStyles.BeginBoxScope();
+            bool enableTogglePrefab = withMediationSettingsProp.boolValue;
+            if (enableTogglePrefab != EditorGUILayout.ToggleLeft( "With Mediaiton Settings", enableTogglePrefab ))
+            {
+                enableTogglePrefab = !enableTogglePrefab;
+                withMediationSettingsProp.boolValue = enableTogglePrefab;
+            }
+            EditorGUI.BeginDisabledGroup( !enableTogglePrefab );
             DrawPrefabSelector( "Toggle UI Prefab",
                 settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName,
                 typeof( MediationPolicyUI ) );
             EditorGUI.EndDisabledGroup();
-            if (disableTogglePrefab)
+            if (!enableTogglePrefab)
                 settingsTogglePrefabProp.objectReferenceValue = null;
-            CAS.UEditor.HelpStyles.EndBoxScope();
+            HelpStyles.EndBoxScope();
+
+            HelpStyles.BeginBoxScope();
+            var activeTracking = withRequestTrackingTransparencyProp.boolValue;
+            if (activeTracking != GUILayout.Toggle( activeTracking,
+                "With iOS App Tracking Transparency requeset" ))
+            {
+                activeTracking = !activeTracking;
+                withRequestTrackingTransparencyProp.boolValue = activeTracking;
+            }
+            EditorGUI.BeginDisabledGroup( !activeTracking );
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField( "Tracking Usage Description:" );
+            if (GUILayout.Button( "Default", EditorStyles.miniButton, GUILayout.ExpandWidth( false ) ))
+                trackingUsageDescriptionProp.stringValue = locationUsageDefaultDescription;
+            if (GUILayout.Button( "Info", EditorStyles.miniButton, GUILayout.ExpandWidth( false ) ))
+                Application.OpenURL( configuringPrivacyURL );
+            EditorGUILayout.EndHorizontal();
+            trackingUsageDescriptionProp.stringValue =
+                EditorGUILayout.TextArea( trackingUsageDescriptionProp.stringValue, HelpStyles.wordWrapTextAred );
+            EditorGUILayout.HelpBox( "NSUserTrackingUsageDescription key with a custom message describing your usage location tracking to AppTrackingTransparency.Request(). Can be empty if not using location tracking", MessageType.None );
+            EditorGUI.EndDisabledGroup();
+            HelpStyles.EndBoxScope();
 
             obj.ApplyModifiedProperties();
         }
