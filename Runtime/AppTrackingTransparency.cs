@@ -52,8 +52,10 @@ namespace CAS.iOS
             if (string.IsNullOrEmpty( settings.defaultIOSTrakingUsageDescription ))
                 throw new ArgumentNullException(
                     "Please set NSUserTrackingUsageDescription in 'Assets > CleverAdsSolutions > Consent Request parameters' menu to correct tracking authorization request." );
-#endif
+            OnAuthorizationRequestComplete( Status.Authorized );
+#else
             CASURequestTracking( AuthorizationRequestComplete );
+#endif
 #else
             OnAuthorizationRequestComplete( Status.Authorized );
 #endif

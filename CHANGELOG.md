@@ -1,6 +1,10 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
 ## [1.2.0] - 2021-03-02
+### Bug Fixes
+- Fix `AppTrackingTransparency.Request()` in Unity Editor.
+
+## [1.2.0] - 2021-03-02
 ### Dependencies
 - CleverAdsSolutions - [2.0.0](https://github.com/cleveradssolutions/CAS-Unity/releases)
 ### Features

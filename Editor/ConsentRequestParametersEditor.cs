@@ -216,6 +216,7 @@ namespace CAS.UserConsent
                 var togglePrefab = LoadUITemplatePrefab( templateSettingsPrefabName );
                 if (togglePrefab)
                     asset.WithMediationSettingsTogglePrefab( togglePrefab.GetComponent<MediationPolicyUI>() );
+
                 AssetDatabase.CreateAsset( asset, assetPath );
             }
 
