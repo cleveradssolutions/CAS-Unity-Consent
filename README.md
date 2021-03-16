@@ -1,7 +1,9 @@
 # CleverAdsSolutions-Unity Consent
-Every application, except for children, must make certain disclosures to users in the European Economic Area (EEA) along with the UK and obtain their consent to use cookies or other local storage, where legally required, and to use personal data (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).
-
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/cleveradssolutions/CAS-Unity-Consent?label=Unity%20Package)](https://github.com/cleveradssolutions/CAS-Unity/releases/latest)  
+
+Every application, except for children, must make certain disclosures to users in the European Economic Area (EEA) along with the UK and obtain their consent to use cookies or other local storage, where legally required, and to use personal data (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).  
+
+The CAS Unity Consent provides tools for publishers to request consent for personalized ads as well as to handle [Apple's App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency) requirements. Publishers can use the UMP SDK to handle either or both of these requests by showing a single a form, as all of the configuration happens in the unity inspector.
 
 ## Add the CAS Consent package to Your Project
 if you are using Unity 2018.4 or newer then you can add CAS SDK to your Unity project using the [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html), or you can import the package manually.
