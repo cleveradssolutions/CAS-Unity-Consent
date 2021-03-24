@@ -136,7 +136,7 @@ namespace CAS.UserConsent
             EditorGUILayout.EndHorizontal();
             trackingUsageDescriptionProp.stringValue =
                 EditorGUILayout.TextArea( trackingUsageDescriptionProp.stringValue, HelpStyles.wordWrapTextAred );
-            EditorGUILayout.HelpBox( "NSUserTrackingUsageDescription key with a custom message describing your usage location tracking to AppTrackingTransparency.Request(). Can be empty if not using location tracking", MessageType.None );
+            EditorGUILayout.HelpBox( "NSUserTrackingUsageDescription key with a custom message describing your usage location tracking to AppTrackingTransparency.Request().", MessageType.None );
             EditorGUI.EndDisabledGroup();
             HelpStyles.EndBoxScope();
 

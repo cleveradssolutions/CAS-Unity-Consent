@@ -1,6 +1,13 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
-## [1.2.0] - 2021-03-02
+## [1.2.2] - 2021-03-24
+### Features
+- Added Tapjoy and Fyber mediation networks.
+### Bug Fixes
+- Fix button `Decline all` localization into Polish and Chinese.
+- Fix `IndexOutOfRangeException` from `MediationSettingsUI` when Consent plguin get unknown network.
+
+## [1.2.1] - 2021-03-02
 ### Bug Fixes
 - Fix `AppTrackingTransparency.Request()` in Unity Editor.
 

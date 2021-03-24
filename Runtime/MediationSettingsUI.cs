@@ -46,15 +46,18 @@ namespace CAS.UserConsent
                 null,
                 "https://advertising.amazon.com/legal/privacy-notice",
                 "https://www.verizonmedia.com/policies/us/en/verizonmedia/privacy/",
-                "https://www.mopub.com/en/legal/privacy"
+                "https://www.mopub.com/en/legal/privacy",
+                "https://www.tapjoy.com/legal/players/privacy-policy/",
+                "https://www.fyber.com/privacy-policy/"
             };
 
             yield return null;
             var active = MobileAds.GetActiveNetworks();
+            var validNames = Enum.GetNames( typeof( AdNetwork ) );
 
             items = new MediationPolicyUI[active.Length];
 
-            for (int i = 0; i < active.Length; i++)
+            for (int i = 0; i < active.Length && i < privacyPolicyList.Length && i < validNames.Length; i++)
             {
                 var policy = privacyPolicyList[( int )active[i]];
                 if (policy != null)
