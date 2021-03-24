@@ -53,20 +53,22 @@ namespace CAS.UserConsent
 
             yield return null;
             var active = MobileAds.GetActiveNetworks();
-            var validNames = Enum.GetNames( typeof( AdNetwork ) );
-
             items = new MediationPolicyUI[active.Length];
 
-            for (int i = 0; i < active.Length && i < privacyPolicyList.Length && i < validNames.Length; i++)
+            for (int i = 0; i < active.Length && i < privacyPolicyList.Length; i++)
             {
                 var policy = privacyPolicyList[( int )active[i]];
                 if (policy != null)
                 {
-                    var item = Instantiate( policyPrefab, container, false );
-                    item.network = active[i];
-                    item.SetPrivacyPolicyUrl( policy );
-                    items[i] = item;
-                    yield return null;
+                    var netName = active[i].ToString();
+                    if (netName.Length > 2)
+                    {
+                        var item = Instantiate( policyPrefab, container, false );
+                        item.network = active[i];
+                        item.SetPrivacyPolicyUrl( policy );
+                        items[i] = item;
+                        yield return null;
+                    }
                 }
             }
             initialized = true;

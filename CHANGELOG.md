@@ -1,5 +1,9 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.2.3] - 2021-03-24
+### Bug Fixes
+- Fix wrong network name when Consent plguin get unknown network.
+
 ## [1.2.2] - 2021-03-24
 ### Features
 - Added Tapjoy and Fyber mediation networks.
