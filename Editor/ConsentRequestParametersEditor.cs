@@ -77,19 +77,25 @@ namespace CAS.UserConsent
                 () => newCASVersion = Utils.GetNewVersionOrNull( gitRepoName, UserConsent.version, false );
         }
 
+        protected override void OnHeaderGUI()
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label( "CleverAdsSolutions", HelpStyles.largeTitleStyle );
+            GUILayout.Label( "Consent", HelpStyles.largeTitleStyle, GUILayout.ExpandWidth( false ) );
+            EditorGUILayout.EndHorizontal();
+
+            Utils.OnHeaderGUI( gitRepoName, allowedPackageUpdate, UserConsent.version, ref newCASVersion );
+        }
+
         public override void OnInspectorGUI()
         {
             var obj = serializedObject;
             obj.UpdateIfRequiredOrScript();
 
-            Utils.LinksToolbarGUI( gitRepoName );
-
             EditorGUILayout.PropertyField( withAudienceDefinitionProp );
             EditorGUILayout.PropertyField( withDeclineOptionProp );
             EditorGUILayout.PropertyField( showInEditorProp );
-            EditorGUILayout.Space();
-
-            Utils.AboutRepoGUI( gitRepoName, allowedPackageUpdate, UserConsent.version, ref newCASVersion );
             EditorGUILayout.Space();
 
             currentListProp = privacyPolicyUrlProp;

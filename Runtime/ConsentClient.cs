@@ -175,9 +175,10 @@ namespace CAS.UserConsent
                     return "VZ";
                 case AdNetwork.MoPub:
                     return "MP";
-                case ( AdNetwork )20:
+                case AdNetwork.Tapjoy:
                     return "TJ";
-                case ( AdNetwork )21:
+                case AdNetwork.Fyber:
+                case AdNetwork.FairBid:
                     return "Fy";
                 default:
                     return string.Empty;
