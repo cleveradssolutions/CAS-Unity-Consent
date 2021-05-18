@@ -1,5 +1,9 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.2.5] - 2021-04-06
+### Dependencies
+- CleverAdsSolutions - [2.2.2](https://github.com/cleveradssolutions/CAS-Unity/releases)
+
 ## [1.2.4] - 2021-04-06
 ### Dependencies
 - CleverAdsSolutions - [2.1.4](https://github.com/cleveradssolutions/CAS-Unity/releases)

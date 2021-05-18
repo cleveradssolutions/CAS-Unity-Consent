@@ -84,7 +84,7 @@ namespace CAS.UserConsent
             GUILayout.Label( "CleverAdsSolutions", HelpStyles.largeTitleStyle );
             GUILayout.Label( "Consent", HelpStyles.largeTitleStyle, GUILayout.ExpandWidth( false ) );
             EditorGUILayout.EndHorizontal();
-
+            EditorGUILayout.Space();
             Utils.OnHeaderGUI( gitRepoName, allowedPackageUpdate, UserConsent.version, ref newCASVersion );
         }
 

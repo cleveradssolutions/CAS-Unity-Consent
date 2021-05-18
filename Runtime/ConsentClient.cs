@@ -180,6 +180,8 @@ namespace CAS.UserConsent
                 case AdNetwork.Fyber:
                 case AdNetwork.FairBid:
                     return "Fy";
+                case AdNetwork.Mintegral:
+                    return "MB";
                 default:
                     return string.Empty;
             }

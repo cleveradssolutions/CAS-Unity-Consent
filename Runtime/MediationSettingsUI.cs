@@ -49,7 +49,8 @@ namespace CAS.UserConsent
                 "https://www.mopub.com/en/legal/privacy",
                 "https://www.tapjoy.com/legal/players/privacy-policy/",
                 null,
-                "https://www.fyber.com/privacy-policy/"
+                "https://www.fyber.com/privacy-policy/",
+                "https://www.mintegral.com/en/privacy/"
             };
 
             yield return null;
