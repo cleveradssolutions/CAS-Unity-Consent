@@ -5,7 +5,7 @@ namespace CAS.UserConsent
 {
     public static class UserConsent
     {
-        public const string version = "1.2.5";
+        public const string version = "1.2.6";
 
         /// <summary>
         /// User latest consent status values.
