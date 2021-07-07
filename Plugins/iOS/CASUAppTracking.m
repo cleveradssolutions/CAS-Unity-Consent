@@ -15,7 +15,9 @@ void CASURequestTracking(CASUTrackingStatusCallback callback)
         [ATTrackingManager
          requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
              if (callback) {
-                 callback((int)status);
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     callback((int)status);
+                 });
              }
          }];
     } else {

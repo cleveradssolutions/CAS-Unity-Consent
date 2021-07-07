@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
 namespace CAS.iOS
 {
@@ -46,7 +47,7 @@ namespace CAS.iOS
         {
             if (OnAuthorizationRequestComplete == null)
                 throw new ArgumentNullException( "Please subscribe callback OnAuthorizationRequestComplete before call Request()." );
-#if UNITY_IOS || CASDeveloper
+#if UNITY_IOS || (CASDeveloper && UNITY_EDITOR)
 #if UNITY_EDITOR
             var settings = UserConsent.UserConsent.BuildRequest();
             if (string.IsNullOrEmpty( settings.defaultIOSTrakingUsageDescription ))
@@ -61,7 +62,7 @@ namespace CAS.iOS
 #endif
         }
 
-#if UNITY_IOS || CASDeveloper
+#if UNITY_IOS || (CASDeveloper && UNITY_EDITOR)
         internal delegate void CASUTrackingStatusCallback( int status );
 
         [DllImport( "__Internal" )]
