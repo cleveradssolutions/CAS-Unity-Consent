@@ -1,5 +1,9 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [1.2.7] - 2021-09-07
+### Dependencies
+- CleverAdsSolutions - [2.5.2](https://github.com/cleveradssolutions/CAS-Unity/releases)
+
 ## [1.2.6] - 2021-07-07
 ### Bug Fixes
 - [iOS] Fixed response of AppTrackingTransparency from wrong thread.

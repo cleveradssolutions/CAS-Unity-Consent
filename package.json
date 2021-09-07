@@ -1,11 +1,11 @@
 {
     "name": "com.cleversolutions.ads.consent.unity",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "displayName": "CleverAdsSolutions Consent",
     "description": "Clever Ads Solutions User consent Unity plugin.",
     "unity": "2017.4",
     "dependencies": {
-        "com.cleversolutions.ads.unity": "2.2.2"
+        "com.cleversolutions.ads.unity": "2.5.2"
     },
     "author": {
         "name": "CleverAdsSolutions",

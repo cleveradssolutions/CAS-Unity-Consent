@@ -44,13 +44,14 @@ namespace CAS.UserConsent
                 "https://developers.ironsrc.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/",
                 "https://yandex.com/legal/mobileads_sdk_agreement/",
                 null,
-                "https://advertising.amazon.com/legal/privacy-notice",
-                "https://www.verizonmedia.com/policies/us/en/verizonmedia/privacy/",
+                null,
+                null,
                 "https://www.mopub.com/en/legal/privacy",
                 "https://www.tapjoy.com/legal/players/privacy-policy/",
                 null,
                 "https://www.fyber.com/privacy-policy/",
-                "https://www.mintegral.com/en/privacy/"
+                "https://www.mintegral.com/en/privacy/",
+                "https://www.pangleglobal.com/privacy/enduser-en"
             };
 
             yield return null;
