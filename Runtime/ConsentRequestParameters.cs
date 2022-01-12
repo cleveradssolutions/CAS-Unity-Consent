@@ -26,9 +26,6 @@ namespace CAS.UserConsent
         internal bool withRequestTrackingTransparency = false;
 
         [SerializeField]
-        private string trackingUsageDescription;
-
-        [SerializeField]
         internal UserConsentUI uiPrefab;
 
         [SerializeField]
@@ -160,11 +157,6 @@ namespace CAS.UserConsent
         {
             resetStatus = 2;
             return this;
-        }
-
-        public string defaultIOSTrakingUsageDescription
-        {
-            get { return withRequestTrackingTransparency ? trackingUsageDescription : null; }
         }
         #endregion
 

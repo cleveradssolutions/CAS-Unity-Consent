@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -70,7 +71,7 @@ namespace CAS.UserConsent
             if (mediationSettings)
             {
                 mediationSettings.gameObject.SetActive( false );
-                mediationSettings.OnConsent.AddListener( OnMediationSettingsApplied );
+                mediationSettings.OnConsent.AddListener( OnConsentDialogWillClose );
                 if (parameters.settingsTogglePrefab)
                     mediationSettings.policyPrefab = parameters.settingsTogglePrefab;
 
@@ -132,20 +133,6 @@ namespace CAS.UserConsent
 
         private void ShowConsentPanel()
         {
-            if (parameters.withRequestTrackingTransparency)
-            {
-                CAS.iOS.AppTrackingTransparency.OnAuthorizationRequestComplete += ShowConsentContainer;
-                CAS.iOS.AppTrackingTransparency.Request();
-            }
-            else
-            {
-                consentTextContainer.SetActive( true );
-            }
-        }
-
-        private void ShowConsentContainer( iOS.AppTrackingTransparency.Status status )
-        {
-            CAS.iOS.AppTrackingTransparency.OnAuthorizationRequestComplete -= ShowConsentContainer;
             consentTextContainer.SetActive( true );
         }
 
@@ -159,30 +146,45 @@ namespace CAS.UserConsent
         private void OnConsentAccepted()
         {
             consentTextContainer.SetActive( false );
-
             PlayerPrefs.SetString( ConsentClient.consentStringPref, ConsentClient.consentAccepted );
             MobileAds.settings.userConsent = ConsentStatus.Accepted;
             PlayerPrefs.Save();
-            Destroy( gameObject );
-            if (parameters.OnConsent != null)
-                parameters.OnConsent();
-            onConsent.Invoke();
+            OnConsentDialogWillClose();
         }
 
         private void OnConsentDenied()
         {
             consentTextContainer.SetActive( false );
-
             PlayerPrefs.SetString( ConsentClient.consentStringPref, ConsentClient.consentDenied );
             MobileAds.settings.userConsent = ConsentStatus.Denied;
             PlayerPrefs.Save();
-            Destroy( gameObject );
-            if (parameters.OnConsent != null)
-                parameters.OnConsent();
-            onConsent.Invoke();
+            OnConsentDialogWillClose();
         }
 
-        private void OnMediationSettingsApplied()
+        private void OnConsentDialogWillClose()
+        {
+            try
+            {
+                if (parameters.withRequestTrackingTransparency)
+                {
+                    ATTrackingStatus.Request( OnATTResponse );
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogException( e );
+            }
+
+            CloseConsentDialog();
+        }
+
+        private void OnATTResponse( ATTrackingStatus.AuthorizationStatus status )
+        {
+            CloseConsentDialog();
+        }
+
+        private void CloseConsentDialog()
         {
             Destroy( gameObject );
             if (parameters.OnConsent != null)

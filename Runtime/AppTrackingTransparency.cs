@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace CAS.iOS
@@ -9,14 +8,15 @@ namespace CAS.iOS
     /// A class that provides a tracking authorization request and the tracking authorization status of the app.
     /// <see cref="https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager"/>
     /// </summary>
+    [Obsolete( "Migrated to new CAS.ATTrackingStatus." )]
     public static class AppTrackingTransparency
     {
         public enum Status
         {
-            NotDetermined,
-            Restricted,
-            Denied,
-            Authorized
+            NotDetermined = ATTrackingStatus.AuthorizationStatus.NotDetermined,
+            Restricted = ATTrackingStatus.AuthorizationStatus.Restricted,
+            Denied = ATTrackingStatus.AuthorizationStatus.Denied,
+            Authorized = ATTrackingStatus.AuthorizationStatus.Authorized
         }
 
         /// <summary>
@@ -45,31 +45,10 @@ namespace CAS.iOS
         /// <exception cref="ArgumentException">Please set NSUserTrackingUsageDescription in 'Assets > CleverAdsSolutions > iOS Settings' menu to correct tracking authorization request.</exception>
         public static void Request()
         {
-            if (OnAuthorizationRequestComplete == null)
-                throw new ArgumentNullException( "Please subscribe callback OnAuthorizationRequestComplete before call Request()." );
-#if UNITY_IOS || (CASDeveloper && UNITY_EDITOR)
-#if UNITY_EDITOR
-            var settings = UserConsent.UserConsent.BuildRequest();
-            if (string.IsNullOrEmpty( settings.defaultIOSTrakingUsageDescription ))
-                throw new ArgumentNullException(
-                    "Please set NSUserTrackingUsageDescription in 'Assets > CleverAdsSolutions > Consent Request parameters' menu to correct tracking authorization request." );
-            OnAuthorizationRequestComplete( Status.Authorized );
-#else
-            CASURequestTracking( AuthorizationRequestComplete );
-#endif
-#else
-            OnAuthorizationRequestComplete( Status.Authorized );
-#endif
+            ATTrackingStatus.Request( AuthorizationRequestComplete );
         }
 
-#if UNITY_IOS || (CASDeveloper && UNITY_EDITOR)
-        internal delegate void CASUTrackingStatusCallback( int status );
-
-        [DllImport( "__Internal" )]
-        internal static extern void CASURequestTracking( CASUTrackingStatusCallback callback );
-
-        [AOT.MonoPInvokeCallback( typeof( CASUTrackingStatusCallback ) )]
-        private static void AuthorizationRequestComplete( int status )
+        private static void AuthorizationRequestComplete( ATTrackingStatus.AuthorizationStatus status )
         {
             try
             {
@@ -78,9 +57,8 @@ namespace CAS.iOS
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.LogException( e );
+                Debug.LogException( e );
             }
         }
-#endif
     }
 }

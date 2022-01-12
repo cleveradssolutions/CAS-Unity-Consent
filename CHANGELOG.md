@@ -1,5 +1,13 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [2.0.0] - 2022-01-12
+### Dependencies
+- CleverAdsSolutions - [2.6.1](https://github.com/cleveradssolutions/CAS-Unity/releases)
+### Features
+- Updated user interface prefabes.
+- AppTrackingTransparency and NSLocationTrackingDescription implementation migrated to CAS Unity plguin.
+- Addded AppTrackingTransparency request in any case.
+
 ## [1.2.7] - 2021-09-07
 ### Dependencies
 - CleverAdsSolutions - [2.5.2](https://github.com/cleveradssolutions/CAS-Unity/releases)

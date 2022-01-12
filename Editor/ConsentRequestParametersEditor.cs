@@ -33,7 +33,6 @@ namespace CAS.UserConsent
         private SerializedProperty settingsTogglePrefabProp;
         private SerializedProperty privacyPolicyUrlProp;
         private SerializedProperty termsOfUseUrlProp;
-        private SerializedProperty trackingUsageDescriptionProp;
 
         private ReorderableList privacyPolicyList;
         private ReorderableList termsOfUseList;
@@ -55,7 +54,6 @@ namespace CAS.UserConsent
             settingsTogglePrefabProp = props.FindProperty( "settingsTogglePrefab" );
             privacyPolicyUrlProp = props.FindProperty( "privacyPolicyUrl" );
             termsOfUseUrlProp = props.FindProperty( "termsOfUseUrl" );
-            trackingUsageDescriptionProp = props.FindProperty( "trackingUsageDescription" );
 
             privacyPolicyList = new ReorderableList( props, privacyPolicyUrlProp, true, true, true, true )
             {
@@ -93,59 +91,57 @@ namespace CAS.UserConsent
             var obj = serializedObject;
             obj.UpdateIfRequiredOrScript();
 
-            EditorGUILayout.PropertyField( withAudienceDefinitionProp );
-            EditorGUILayout.PropertyField( withDeclineOptionProp );
-            EditorGUILayout.PropertyField( showInEditorProp );
+            showInEditorProp.boolValue = GUILayout.Toggle(
+                showInEditorProp.boolValue,
+                " Test in Unity Editor" );
+            withAudienceDefinitionProp.boolValue = GUILayout.Toggle(
+                withAudienceDefinitionProp.boolValue,
+                " With Age of audience requeset" );
+            EditorGUI.indentLevel++;
+            EditorGUILayout.HelpBox( "The user is prompted for the year of birth and the audience is determined automatically.", MessageType.None );
+            EditorGUI.indentLevel--;
+            withRequestTrackingTransparencyProp.boolValue = GUILayout.Toggle(
+                withRequestTrackingTransparencyProp.boolValue,
+                " With iOS App Tracking Transparency requeset" );
+            EditorGUI.indentLevel++;
+            EditorGUILayout.HelpBox( "The iOS 14.5+ users is prompted for permission to track the Advertising ID.", MessageType.None );
+            EditorGUI.indentLevel--;
+            withDeclineOptionProp.boolValue = GUILayout.Toggle(
+                withDeclineOptionProp.boolValue,
+                " With option of Decline consent" );
+            EditorGUI.indentLevel++;
+            EditorGUILayout.HelpBox( "The user is given the choice to opt out dialog.", MessageType.None );
+            EditorGUI.indentLevel--;
+
+            bool enableTogglePrefab = withMediationSettingsProp.boolValue;
+            if (enableTogglePrefab != EditorGUILayout.ToggleLeft( "With Mediaiton Networks settings", enableTogglePrefab ))
+            {
+                enableTogglePrefab = !enableTogglePrefab;
+                withMediationSettingsProp.boolValue = enableTogglePrefab;
+            }
+            EditorGUI.BeginDisabledGroup( !enableTogglePrefab );
+            DrawPrefabSelector( "Network UI Prefab",
+                settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName,
+                typeof( MediationPolicyUI ) );
+            EditorGUI.EndDisabledGroup();
+            if (!enableTogglePrefab)
+                settingsTogglePrefabProp.objectReferenceValue = null;
+            EditorGUI.indentLevel++;
+            EditorGUILayout.HelpBox( "The user is provided with advanced consent settings for each active network in the game.", MessageType.None );
+            EditorGUI.indentLevel--;
+
+            EditorGUILayout.Space();
+            DrawPrefabSelector( "Consent UI Prefab",
+                uiPrefabProp, templateUIPrefabName, customUIPrefabName,
+                typeof( UserConsentUI ) );
             EditorGUILayout.Space();
 
             currentListProp = privacyPolicyUrlProp;
             privacyPolicyList.DoLayoutList();
             currentListProp = termsOfUseUrlProp;
             termsOfUseList.DoLayoutList();
-            EditorGUILayout.Space();
 
-            DrawPrefabSelector( "Consent UI Prefab",
-                uiPrefabProp, templateUIPrefabName, customUIPrefabName,
-                typeof( UserConsentUI ) );
-
-            HelpStyles.BeginBoxScope();
-            bool enableTogglePrefab = withMediationSettingsProp.boolValue;
-            if (enableTogglePrefab != EditorGUILayout.ToggleLeft( "With Mediaiton Settings", enableTogglePrefab ))
-            {
-                enableTogglePrefab = !enableTogglePrefab;
-                withMediationSettingsProp.boolValue = enableTogglePrefab;
-            }
-            EditorGUI.BeginDisabledGroup( !enableTogglePrefab );
-            DrawPrefabSelector( "Toggle UI Prefab",
-                settingsTogglePrefabProp, templateSettingsPrefabName, customSettingsPrefabName,
-                typeof( MediationPolicyUI ) );
-            EditorGUI.EndDisabledGroup();
-            if (!enableTogglePrefab)
-                settingsTogglePrefabProp.objectReferenceValue = null;
-            HelpStyles.EndBoxScope();
-
-            HelpStyles.BeginBoxScope();
-            var activeTracking = withRequestTrackingTransparencyProp.boolValue;
-            if (activeTracking != GUILayout.Toggle( activeTracking,
-                "With iOS App Tracking Transparency requeset" ))
-            {
-                activeTracking = !activeTracking;
-                withRequestTrackingTransparencyProp.boolValue = activeTracking;
-            }
-            EditorGUI.BeginDisabledGroup( !activeTracking );
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField( "Tracking Usage Description:" );
-            if (GUILayout.Button( "Default", EditorStyles.miniButton, GUILayout.ExpandWidth( false ) ))
-                trackingUsageDescriptionProp.stringValue = locationUsageDefaultDescription;
-            if (GUILayout.Button( "Info", EditorStyles.miniButton, GUILayout.ExpandWidth( false ) ))
-                Application.OpenURL( configuringPrivacyURL );
-            EditorGUILayout.EndHorizontal();
-            trackingUsageDescriptionProp.stringValue =
-                EditorGUILayout.TextArea( trackingUsageDescriptionProp.stringValue, HelpStyles.wordWrapTextAred );
-            EditorGUILayout.HelpBox( "NSUserTrackingUsageDescription key with a custom message describing your usage location tracking to AppTrackingTransparency.Request().", MessageType.None );
-            EditorGUI.EndDisabledGroup();
-            HelpStyles.EndBoxScope();
-
+            EditorGUILayout.HelpBox( "Use 'Edit > Clear All PlayerPrefs' menu to reset consent state in Unity Editor.", MessageType.Info );
             obj.ApplyModifiedProperties();
         }
 
@@ -154,10 +150,10 @@ namespace CAS.UserConsent
             var height = rect.height;
             var item = currentListProp.GetArrayElementAtIndex( index );
             rect.yMin += 1;
-            rect.yMax -= 1;
+            rect.yMax -= 3;
             if (currentListProp.arraySize > 1)
             {
-                rect.yMax -= height * 0.5f + 2;
+                rect.yMax -= height * 0.5f;
 
                 var id = item.FindPropertyRelative( "id" );
                 var label = ( index == 0 ? "Preferred " : "Platform " );
@@ -198,9 +194,10 @@ namespace CAS.UserConsent
                 prop.objectReferenceValue = LoadUITemplatePrefab( templateName );
             }
             EditorGUILayout.EndHorizontal();
+            EditorGUI.indentLevel++;
             prop.objectReferenceValue =
                 EditorGUILayout.ObjectField( prop.objectReferenceValue, objType, false );
-            EditorGUILayout.Space();
+            EditorGUI.indentLevel--;
         }
 
         #region Utils

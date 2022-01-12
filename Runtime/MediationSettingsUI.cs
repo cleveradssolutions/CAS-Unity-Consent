@@ -25,43 +25,14 @@ namespace CAS.UserConsent
 
         private IEnumerator Start()
         {
-            string[] privacyPolicyList =
-            {
-                "https://policies.google.com/technologies/ads",
-                "https://vungle.com/privacy/",
-                "https://kidoz.net/privacy-policy/",
-                "https://answers.chartboost.com/en-us/articles/200780269",
-                "https://unity3d.com/legal/privacy-policy",
-                "https://www.applovin.com/privacy/",
-                "https://www.superawesome.com/privacy-hub/privacy-policy/",
-                "https://www.startapp.com/policy/privacy-policy/",
-                "https://www.adcolony.com/privacy-policy/",
-                "https://developers.facebook.com/docs/audience-network/policy/",
-                "https://www.inmobi.com/privacy-policy/",
-                "https://www.mobfox.com/privacy-policy/",
-                "https://legal.my.com/us/mytarget/privacy/",
-                null,
-                "https://developers.ironsrc.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/",
-                "https://yandex.com/legal/mobileads_sdk_agreement/",
-                null,
-                null,
-                null,
-                "https://www.mopub.com/en/legal/privacy",
-                "https://www.tapjoy.com/legal/players/privacy-policy/",
-                null,
-                "https://www.fyber.com/privacy-policy/",
-                "https://www.mintegral.com/en/privacy/",
-                "https://www.pangleglobal.com/privacy/enduser-en"
-            };
-
             yield return null;
             var active = MobileAds.GetActiveNetworks();
             items = new MediationPolicyUI[active.Length];
 
-            for (int i = 0; i < active.Length && i < privacyPolicyList.Length; i++)
+            for (int i = 0; i < active.Length; i++)
             {
-                var policy = privacyPolicyList[( int )active[i]];
-                if (policy != null)
+                var policy = active[i].GetPrivacyPolicy();
+                if (!string.IsNullOrEmpty(policy))
                 {
                     var netName = active[i].ToString();
                     if (netName.Length > 2)

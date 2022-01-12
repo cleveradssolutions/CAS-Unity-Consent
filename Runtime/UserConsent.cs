@@ -5,7 +5,7 @@ namespace CAS.UserConsent
 {
     public static class UserConsent
     {
-        public const string version = "1.2.7";
+        public const string version = "2.0.0";
 
         /// <summary>
         /// User latest consent status values.
@@ -45,12 +45,6 @@ namespace CAS.UserConsent
             if (builder)
                 return UnityEngine.Object.Instantiate( builder );
             return ScriptableObject.CreateInstance<ConsentRequestParameters>();
-        }
-
-        [Obsolete( "Deprecated. Additional calls are no longer required to apply user consent settings." )]
-        public static CASInitSettings WithUserConsent( this CASInitSettings builder )
-        {
-            return builder;
         }
     }
 }

@@ -77,7 +77,7 @@ namespace CAS.UserConsent
             if (active.Length != consent.Length)
                 return;
             var result = new Dictionary<string, string>();
-            var netTags = GetNetworkTags();
+            var netTags = AdNetworkExtension.GetListOfTags();
             for (int i = 0; i < consent.Length; i++)
             {
                 if (consent[i] != '-')
@@ -146,39 +146,6 @@ namespace CAS.UserConsent
                     return source[i].text;
             }
             return source[0].text;
-        }
-
-        public static string[] GetNetworkTags()
-        {
-            return new string[]
-            {
-                "AM",
-                "V",
-                "K",
-                "CB",
-                "U",
-                "AL",
-                "SuA",
-                "StA",
-                "AC",
-                "FB",
-                "IM",
-                "MF",
-                "MT",
-                "P",
-                "IS",
-                "Ya",
-                string.Empty, //VAST
-                string.Empty, //MAX
-                "Sm",
-                "MP",
-                "TJ",
-                string.Empty, //Fyber
-                "Fy",
-                "MB",
-                "Pa",
-                "HMX"
-            };
         }
     }
 }
