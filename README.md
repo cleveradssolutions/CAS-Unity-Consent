@@ -23,7 +23,7 @@ Modify `Packages/manifest.json`  to the following form:
   }
 ],
 "dependencies": {
-"com.cleversolutions.ads.consent.unity": "https://github.com/cleveradssolutions/CAS-Unity-Consent.git#1.2.7"
+"com.cleversolutions.ads.consent.unity": "https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.0"
 }
 }
 ```
