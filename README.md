@@ -3,53 +3,49 @@
 
 Every application, except for children, must make certain disclosures to users in the European Economic Area (EEA) along with the UK and obtain their consent to use cookies or other local storage, where legally required, and to use personal data (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).  
 
-The CAS Unity Consent provides tools for publishers to request consent for personalized ads as well as to handle [Apple's App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency) requirements. Publishers can use the UMP SDK to handle either or both of these requests by showing a single a form, as all of the configuration happens in the unity inspector.
+The CAS Unity Consent provides tools for publishers to request consent for personalized ads as well as to handle [Apple's App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency) requirements.
 
 ## Add the CAS Consent package to Your Project
 if you are using Unity 2018.4 or newer then you can add CAS SDK to your Unity project using the [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html), or you can import the package manually.
 
-#### Option 1 Unity Package Manager
-Add the **Game Package Registry by Google**  and CAS dependency to your Unity project.  
-Modify `Packages/manifest.json`  to the following form:
-```json
-{
-"scopedRegistries": [
-  {
-    "name": "Game Package Registry by Google",
-    "url": "https://unityregistry-pa.googleapis.com",
-    "scopes": [
-      "com.google"
-    ]
-  }
-],
-"dependencies": {
-"com.cleversolutions.ads.consent.unity": "https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.0"
-}
-}
-```
-> Note that some other SDKs, such as the Firebase SDK, may contain [EDM4U](https://github.com/googlesamples/unity-jar-resolver) in their .unitypackage. Check if `Assets/ExternalDependencyManager` or `Assets/PlayServicesResolver` folders exist. If these folders exist, remove them before installing any CAS SDK through Unity Package Manager.
+### Option 1 Unity Package Manager window
+In your open Unity project, navigate to `Window -> Package Manager -> + -> Add package from Git URL` and add url:  
 
-#### Option 2 Manual installation
-1. Download latest [CleverAdsSolutions_Consent.unitypackage](https://github.com/cleveradssolutions/CAS-Unity-Consent/releases/latest)
-2. In your open Unity project, navigate to **Assets > Import Package > Custom Package**.
-3. In the *Import Unity Package* window, make sure all of the files are selected and click **Import**.
+![image](https://user-images.githubusercontent.com/22005013/135641554-c38422fa-995e-4e56-9c3a-a89a72172081.png)
+
+```
+https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.0
+```
+
+### Option 2 Modify `manifest.json`
+Open `YourProject/Packages/manifest.json` file in any text editor and add line in `dependencies` tag:
+```json
+{ "dependencies": {
+"com.cleversolutions.ads.unity": "https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.0",
+} }
+```
+
+### Option 3 Manual import unity package
+1. Download latest [CleverAdsSolutions.unitypackage](https://github.com/cleveradssolutions/CAS-Unity-Consent/releases/latest)
+2. In your open Unity project, navigate to `Assets > Import Package > Custom Package`.
+3. In the `Import Unity Package` window, make sure all of the files are selected and click **Import**.
 
 ## Step 2 Configuring the SDK
 In your open Unity project, navigate to **Assets > CleverAdsSolutions > Consent request parameters** to create and modify request parameters.
 
-- **With Audience Definition** toggle - With request user year of birth form. 
-- **Show in Editor** toggle - Show request in Editor.
+- **Test in Unity Editor** - Show request in Unity Editor.
+- **With Age of audience request** - The user is prompted for the year ir birth and the audience is determined automatically. 
+- **With iOS App tracking Transparency request** - The iOS 14.5+ users is prompted for [permission to track the Advertising ID](https://developer.apple.com/documentation/apptrackingtransparency). 
+- **With option of Decline consent** - The user is given the choice to opt out dialog. 
+- **With Mediation Networks settings** - The user is provided with advanced consent settings for each active network in the game.
+- **Network UI Prefab** field - Refference to network toggle prefab.
+  - **Create template** button - Create and set a template prefab in project assets to override the interface.  
+  - **Default** button - Set default prefab from package.
+- **Consent UI Prefab** field - Refference to main canvas prefab.
+  - **Create template** button - Create and set a template prefab in project assets to override the interface.  
+  - **Default** button - Set default prefab from package.
 - **Privacy policy URL** field - URL to applicaiton privacy policy for each platform or universal.
 - **Terms of Use URL** field - URL to application terms of use for each platform or universal.
-- **With Decline Option** toggle - With Decline button for refuse to use personal data. 
-- **Consent UI Prefab** field - Refference to main canvas prefab.
-**Create template** button - Create and set a template prefab in project assets to override the interface.  
-**Default** button - Set default prefab from package.
-- **With Mediation Settings** toggle - With more options form to select each ad providers consent.
-- **Toggle UI prefab** field - Refference to main canvas prefab.  
-**Create template** button - Create and set a template prefab in project assets to override the interface.  
-**Default** button - Set default prefab from package.
-- **With [Request Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency)** toggle - With request iOS user authorization to access app-related data for tracking the user or the device.  
 
 ## Using the SDK from scripts
 ### Build request parameters
@@ -65,10 +61,7 @@ private void ContinueInitialzie(){
  // User consent received 
  // Next step initialize Clever Ads Solutions
  var builder = CAS.MobileAds.BuildManager();
- 
- // Apply User consent status to Mediation Manager
- builder.WithUserConsent();
- 
+ // Configure CAS
  builder.Initialize();
 }
 ```
@@ -94,10 +87,10 @@ request.DisableInEditor()
 ### Present the form
 ```csharp
 UserConsentUI form = request.Present();
-if(form){
+if(form) {
  // Request form presented and need wait callback to continue loading.
  form.WithCallback(ContinueInitialzie);
-}else{
+} else {
  // Form are not presented.
  ContinueInitialzie();
 }
@@ -134,27 +127,16 @@ Add component > CleverAdsSolutions > UserConsent > Request
 iOS 14 and above requires publishers to obtain permission to track the user's device across applications.  
 
 1. Open Consent requeset parameters in `Assets > CleverAdsSolution > Consent Request Parameters` menu.
-2. Check [iOS App Tracking Transparency authorization request](https://developer.apple.com/documentation/apptrackingtransparency)
-3. Define [NSUserTrackingUsageDescription](https://developer.apple.com/documentation/bundleresources/information_property_list/nsusertrackingusagedescription)  
-Below is an example description text:
-   - This identifier will be used to deliver personalized ads to you.
-   - Your data will be used to provide you a better and personalized ad experience.
-   - We try to show ads for apps and products that will be most interesting to you based on the apps you use.
-   - We try to show ads for apps and products that will be most interesting to you based on the apps you use, the device you are on, and the country you are in.  
-
-> **Important!** CAS does not provide legal advice. Therefore, the information on this page is not a substitute for seeking your own legal counsel to determine the legal requirements of your business and processes, and how to address them.
+2. Check **With iOS App tracking Transparency request**
+3. Open CAS settings in `Assets > CleverAdsSolution > iOS Settings` menu.
+4. Check **Set User Tracking Usage description**
+5. Define [NSUserTrackingUsageDescription](https://developer.apple.com/documentation/bundleresources/information_property_list/nsusertrackingusagedescription)  
 
 ## GitHub issue tracker
 To file bugs, make feature requests, or suggest improvements for the Unity Consent Plugin, please use [GitHub's issue tracker](https://github.com/cleveradssolutions/CAS-Unity-Consent/issues).
 
 ## Support
-Site: [https://cleveradssolutions.com](https://cleveradssolutions.com)
-
-Technical support: Max  
-Skype: m.shevchenko_15  
-
-Network support: Vitaly  
-Skype: zanzavital  
+Site: [https://cleveradssolutions.com](https://cleveradssolutions.com)  
 
 mailto:support@cleveradssolutions.com  
 
