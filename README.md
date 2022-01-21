@@ -98,7 +98,7 @@ if(form) {
 ### Request the latest consent information
 Get the latest consent status value:
 ```csharp
-ConsentStatud status = CAS.UserConsent.UserConsent.GetStatus();
+ConsentStatus status = CAS.UserConsent.UserConsent.GetStatus();
 ```
 Get the latest selected year of birth.
 ```csharp
