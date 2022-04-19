@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿//
+//  Clever Ads Solutions Unity Consent Plugin
+//
+//  Copyright © 2021 CleverAdsSolutions. All rights reserved.
+//
+
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace CAS.UserConsent

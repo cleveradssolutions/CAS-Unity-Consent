@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿//
+//  Clever Ads Solutions Unity Consent Plugin
+//
+//  Copyright © 2021 CleverAdsSolutions. All rights reserved.
+//
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -20,9 +26,6 @@ namespace CAS.UserConsent
         private const string templateSettingsPrefabName = "NetworkPolicy.prefab";
         private const string customUIPrefabName = "UserConsentUI.prefab";
         private const string customSettingsPrefabName = "SettingToggleUI.prefab";
-        private const string configuringPrivacyURL = Utils.gitRootURL + "CAS-Unity#include-ios";
-        private const string locationUsageDefaultDescription = "Your data will be used to provide you a better and personalized ad experience.";
-
 
         private SerializedProperty showInEditorProp;
         private SerializedProperty withAudienceDefinitionProp;
@@ -201,7 +204,7 @@ namespace CAS.UserConsent
         }
 
         #region Utils
-        [MenuItem( "Assets/CleverAdsSolutions/Consent Request Parameters" )]
+        [MenuItem( "Assets/CleverAdsSolutions/Consent Request Parameters", priority = 1015 )]
         public static void CreateParameters()
         {
             if (!AssetDatabase.IsValidFolder( "Assets/Resources" ))

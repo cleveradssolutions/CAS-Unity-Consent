@@ -1,5 +1,12 @@
 # Clever Ads Solutions Unity Plugin Change Log
 
+## [2.0.1] - 2022-01-12
+### Dependencies
+- CleverAdsSolutions - [2.7.2](https://github.com/cleveradssolutions/CAS-Unity/releases)
+### Bug Fixes
+- Disabled duplication of listeners from prefab on privacy policy buttons.
+- Minor GUI adaptation for 9:20 aspect ratio.
+
 ## [2.0.0] - 2022-01-12
 ### Dependencies
 - CleverAdsSolutions - [2.6.1](https://github.com/cleveradssolutions/CAS-Unity/releases)

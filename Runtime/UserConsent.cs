@@ -1,11 +1,17 @@
-﻿using System;
+﻿//
+//  Clever Ads Solutions Unity Consent Plugin
+//
+//  Copyright © 2021 CleverAdsSolutions. All rights reserved.
+//
+
+using System;
 using UnityEngine;
 
 namespace CAS.UserConsent
 {
     public static class UserConsent
     {
-        public const string version = "2.0.0";
+        public const string version = "2.0.1";
 
         /// <summary>
         /// User latest consent status values.

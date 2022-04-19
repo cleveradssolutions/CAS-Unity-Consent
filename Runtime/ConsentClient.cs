@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+//  Clever Ads Solutions Unity Consent Plugin
+//
+//  Copyright © 2021 CleverAdsSolutions. All rights reserved.
+//
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -77,15 +83,13 @@ namespace CAS.UserConsent
             if (active.Length != consent.Length)
                 return;
             var result = new Dictionary<string, string>();
-            var netTags = AdNetworkExtension.GetListOfTags();
             for (int i = 0; i < consent.Length; i++)
             {
                 if (consent[i] != '-')
                 {
-                    var tagI = ( int )active[i];
-                    if (tagI < netTags.Length)
+                    var tag = active[i].GetTag();
+                    if (tag.Length > 0)
                     {
-                        var tag = netTags[tagI];
                         result[tag + "_gdpr"] = consent[i].ToString();
                         //result[tag + "_ccpa"] = consent[i].ToString();
                     }
