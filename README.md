@@ -14,7 +14,7 @@ In your open Unity project, navigate to `Window -> Package Manager -> + -> Add p
 ![image](https://user-images.githubusercontent.com/22005013/135641554-c38422fa-995e-4e56-9c3a-a89a72172081.png)
 
 ```
-https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.0
+https://github.com/cleveradssolutions/CAS-Unity-Consent.git#2.0.1
 ```
 
 ### Option 2 Modify `manifest.json`
