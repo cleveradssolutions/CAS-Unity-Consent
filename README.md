@@ -53,18 +53,6 @@ To load query parameters from an asset into resources, or create default paramet
 ```csharp
 ConsentRequestParameters request = CAS.UserConsent.UserConsent.BuildRequest();
 ```
-To subscribe callback use the following method:
-```csharp
-request.WithCallback(ContinueInitialzie);
-
-private void ContinueInitialzie(){
- // User consent received 
- // Next step initialize Clever Ads Solutions
- var builder = CAS.MobileAds.BuildManager();
- // Configure CAS
- builder.Initialize();
-}
-```
 Override any parameters with following methods:
 ```csharp
 request.DisableInEditor()
@@ -84,16 +72,17 @@ request.DisableInEditor()
        .WithConsentMessage(consentMessage)
        .WithSettingsMessage(mediationSettingsMessage);
 ```
+To subscribe callback use the following method:
+```csharp
+request.WithCallback(() => {
+ // User consent received 
+ // Next step initialize Clever Ads Solutions
+ IMediationManager manager = CAS.MobileAds.BuildManager().Initialize();
+});
+```
 ### Present the form
 ```csharp
 UserConsentUI form = request.Present();
-if(form) {
- // Request form presented and need wait callback to continue loading.
- form.WithCallback(ContinueInitialzie);
-} else {
- // Form are not presented.
- ContinueInitialzie();
-}
 ```
 ### Request the latest consent information
 Get the latest consent status value:
