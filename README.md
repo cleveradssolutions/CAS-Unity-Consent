@@ -1,6 +1,10 @@
 # CleverAdsSolutions-Unity Consent
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/cleveradssolutions/CAS-Unity-Consent?label=Unity%20Package)](https://github.com/cleveradssolutions/CAS-Unity/releases/latest)  
 
+> <img alt="Danger" src="https://github.com/cleveradssolutions/.github/blob/main/badge/danger.svg"><br>
+>  Incompatible with [New Consent Management Platform requirements for serving ads in the EEA and UK](https://support.google.com/adsense/answer/13554116?hl=en#zippy=)  
+> This plugin can no longer be updated and used, use one of the Google-certified CMPs instead.
+
 Every application, except for children, must make certain disclosures to users in the European Economic Area (EEA) along with the UK and obtain their consent to use cookies or other local storage, where legally required, and to use personal data (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).  
 
 The CAS Unity Consent provides tools for publishers to request consent for personalized ads as well as to handle [Apple's App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency) requirements.
